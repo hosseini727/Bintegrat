@@ -38,20 +38,20 @@ namespace BankIntegration.Infra.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreateDate")
+                    b.Property<DateTime?>("CreateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifyDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<long?>("NewPasargad_ProductId")
                         .HasColumnType("bigint");
 
                     b.Property<long>("ProductId")
                         .HasColumnType("bigint");
-
-                    b.Property<DateTime>("UpdateDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("validDate")
                         .HasColumnType("datetime2");
@@ -71,7 +71,10 @@ namespace BankIntegration.Infra.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<DateTime>("CreateDate")
+                    b.Property<DateTime?>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ModifyDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
@@ -84,9 +87,6 @@ namespace BankIntegration.Infra.Migrations
                     b.Property<string>("ProductCode")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdateDate")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
