@@ -3,6 +3,12 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+BankIntegration.API/obj
+BankIntegration.Domain/obj
+BankIntegration.Service/obj
+BankIntegration.Infra/obj
+BankIntegration.UnitTest/obj
+
 # User-specific files
 *.rsuser
 *.suo
@@ -336,7 +342,7 @@ __pycache__/
 OpenCover/
 
 # Idea
-idea/
+.idea/
 
 # Azure Stream Analytics local run output
 ASALocalRun/
