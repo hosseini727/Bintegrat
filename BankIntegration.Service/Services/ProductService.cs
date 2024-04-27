@@ -2,32 +2,32 @@
 using BankIntegration.Domain.Entities;
 using BankIntegration.Infra.Repository.SQLRepository.RepositoryInterface;
 using BankIntegration.Service.Contracts;
+using BankIntegration.Service.CQRSService.ProductCQRSService.Query;
 using BankIntegration.Service.Model;
+using MediatR;
 
 namespace BankIntegration.Service.Services;
 
 public class ProductService : IProductService
 {
-    private readonly IUnitOfWork _unitOfWork;
-    private readonly IMapper _mapper;
+    private readonly IMediator _mediator;
 
-    public ProductService(IUnitOfWork unitOfWork , IMapper mapper)
+    public ProductService(IMediator mediator)
     {
-        _unitOfWork = unitOfWork;
-        _mapper = mapper;
+        _mediator = mediator;
     }
 
     public async Task<ProductResponseModel> GetProductById(long productId)
     {
-        var result = await _unitOfWork.ProductRepository.GetById(productId);
-        var responseModel = _mapper.Map<ProductResponseModel>(result);
-        return responseModel;
+        var query = new GetProductByIdQuery(productId);
+        var result = await _mediator.Send(query);
+        return result;
     }
 
     public async Task<IEnumerable<ProductResponseModel>> GetAll()
     {
-        var result = await _unitOfWork.ProductRepository.GetAll();
-        var response = _mapper.Map<IEnumerable<ProductResponseModel>>(result);
-        return response;
+        var query = new GetProductQuery();
+        var result = await _mediator.Send(query);
+        return result;
     }
 }

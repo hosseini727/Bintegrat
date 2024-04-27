@@ -31,7 +31,11 @@ public static class ServiceConfiguration
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
         //MediatR
-        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+        services.AddMediatR(cnf =>
+        {
+            cnf.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
+            //cnf.AddOpenBehavior(typeof(ValidationBehavior< , >));
+        });
 
         // Services
         services.AddScoped<IUnitOfWork, UnitOfWork>();
