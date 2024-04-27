@@ -5518,19 +5518,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\m-ghazi\\.nuget\\packages\\": {}
+    "C:\\Users\\e-hosseini\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.UnitTest\\BankIntegration.UnitTest.csproj",
+      "projectUniqueName": "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.UnitTest\\BankIntegration.UnitTest.csproj",
       "projectName": "BankIntegration.UnitTest",
-      "projectPath": "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.UnitTest\\BankIntegration.UnitTest.csproj",
-      "packagesPath": "C:\\Users\\m-ghazi\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.UnitTest\\obj\\",
+      "projectPath": "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.UnitTest\\BankIntegration.UnitTest.csproj",
+      "packagesPath": "C:\\Users\\e-hosseini\\.nuget\\packages\\",
+      "outputPath": "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.UnitTest\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\m-ghazi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\e-hosseini\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5538,7 +5542,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://packagesource": {}
       },
       "frameworks": {
         "net8.0": {
@@ -5593,7 +5598,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.104/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
