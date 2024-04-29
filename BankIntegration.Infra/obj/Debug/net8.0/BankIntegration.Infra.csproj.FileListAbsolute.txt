@@ -9,3 +9,9 @@ D:\Projects\Gitlab.sos\BankIntegration\BankIntegration.Infra\obj\Debug\net8.0\Ba
 D:\Projects\Gitlab.sos\BankIntegration\BankIntegration.Infra\obj\Debug\net8.0\refint\BankIntegration.Infra.dll
 D:\Projects\Gitlab.sos\BankIntegration\BankIntegration.Infra\obj\Debug\net8.0\BankIntegration.Infra.pdb
 D:\Projects\Gitlab.sos\BankIntegration\BankIntegration.Infra\obj\Debug\net8.0\ref\BankIntegration.Infra.dll
+D:\Projects\Gitlab.sos\BankIntegration\BankIntegration.Infra\bin\Debug\net8.0\BankIntegration.Infra.runtimeconfig.json
+D:\Projects\Gitlab.sos\BankIntegration\BankIntegration.Infra\bin\Debug\net8.0\BankIntegration.Domain.dll
+D:\Projects\Gitlab.sos\BankIntegration\BankIntegration.Infra\bin\Debug\net8.0\BankIntegration.Domain.pdb
+D:\Projects\Gitlab.sos\BankIntegration\BankIntegration.Infra\obj\Debug\net8.0\BankIntegration.Infra.csproj.AssemblyReference.cache
+D:\Projects\Gitlab.sos\BankIntegration\BankIntegration.Infra\obj\Debug\net8.0\BankIntegration.Infra.csproj.CopyComplete
+D:\Projects\Gitlab.sos\BankIntegration\BankIntegration.Infra\obj\Debug\net8.0\BankIntegration.Infra.genruntimeconfig.cache
