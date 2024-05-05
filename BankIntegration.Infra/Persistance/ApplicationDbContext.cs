@@ -1,20 +1,24 @@
 ﻿using BankIntegration.Domain.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using SOS.Domain.Entities;
 
 namespace BankIntegration.Infra.Persistance;
 
-public class ApplicationDbContext :DbContext
+public class ApplicationDbContext : IdentityDbContext<People, Role, long>
 {
     public virtual DbSet<NewPasargad_Product> NewPasargad_Product  { get; set; }
+    public virtual DbSet<People> People { get; set; }
+
     public virtual DbSet<NewPasargad_ApiProductKey> NewPasargad_ApiProductKey { get; set; }
+    public virtual DbSet<Role> Roles { get; set; }
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
         
     }
-    
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        base.OnModelCreating(builder);           
+        base.OnModelCreating(builder);
     }
 }

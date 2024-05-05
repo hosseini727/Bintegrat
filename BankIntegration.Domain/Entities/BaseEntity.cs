@@ -1,6 +1,10 @@
 ﻿namespace BankIntegration.Domain.Entities;
 
-public class BaseEntity
+
+public interface IEntity
+{
+}
+public class BaseEntity : IEntity
 {
     public long Id { get; set; }
     public DateTime?  CreateDate { get; set; }
