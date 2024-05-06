@@ -38,19 +38,25 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         
     }
     
-   
-    public Task<T> Add(T entity)
+    public async Task<T> Add(T entity)
     {
-        throw new NotImplementedException();
+        await _dbSet.AddAsync(entity);
+        return entity;
     }
-
     public T Update(T entity)
     {
         throw new NotImplementedException();
     }
 
-    public Task<T> Delete(long id)
+    public async Task<T> Delete(long id)
     {
-        throw new NotImplementedException();
+        var entity = await _dbSet.FindAsync(id);
+        if (entity == null)
+        {
+            return null!;
+        }
+
+        _dbSet.Remove(entity);
+        return entity;
     }
 }
