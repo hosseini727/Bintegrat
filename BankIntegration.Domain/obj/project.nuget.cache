@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "S2LSFHVE85jk83H1XxRBtttlPcw5Sj6VB5WxhBNBcCpO1SbnyM2Z2UKx9GKhFa4Lq9TtuwdYMprIvD0YHVDdNw==",
+  "dgSpecHash": "jVP31UlB8j76tWkULy0LX7VPCWjLl69Eafmlv4T/nfi8PUjDb+bFkizuhLI4bPZs2hS6hMkTJrwm3zyfAAlBUg==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.Domain\\BankIntegration.Domain.csproj",
+  "projectFilePath": "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.Domain\\BankIntegration.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

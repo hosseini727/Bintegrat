@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.API\\BankIntegration.API.csproj": {}
+    "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.API\\BankIntegration.API.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.API\\BankIntegration.API.csproj": {
+    "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.API\\BankIntegration.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.API\\BankIntegration.API.csproj",
+        "projectUniqueName": "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.API\\BankIntegration.API.csproj",
         "projectName": "BankIntegration.API",
-        "projectPath": "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.API\\BankIntegration.API.csproj",
-        "packagesPath": "C:\\Users\\m-ghazi\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.API\\obj\\",
+        "projectPath": "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.API\\BankIntegration.API.csproj",
+        "packagesPath": "C:\\Users\\e-hosseini\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.API\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\m-ghazi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\e-hosseini\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,17 +25,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://packagesource": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.Infra\\BankIntegration.Infra.csproj": {
-                "projectPath": "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.Infra\\BankIntegration.Infra.csproj"
+              "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.Infra\\BankIntegration.Infra.csproj": {
+                "projectPath": "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.Infra\\BankIntegration.Infra.csproj"
               },
-              "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.Service\\BankIntegration.Service.csproj": {
-                "projectPath": "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.Service\\BankIntegration.Service.csproj"
+              "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.Service\\BankIntegration.Service.csproj": {
+                "projectPath": "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.Service\\BankIntegration.Service.csproj"
               }
             }
           }
@@ -89,21 +93,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.104/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.Domain\\BankIntegration.Domain.csproj": {
+    "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.Domain\\BankIntegration.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.Domain\\BankIntegration.Domain.csproj",
+        "projectUniqueName": "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.Domain\\BankIntegration.Domain.csproj",
         "projectName": "BankIntegration.Domain",
-        "projectPath": "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.Domain\\BankIntegration.Domain.csproj",
-        "packagesPath": "C:\\Users\\m-ghazi\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.Domain\\obj\\",
+        "projectPath": "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.Domain\\BankIntegration.Domain.csproj",
+        "packagesPath": "C:\\Users\\e-hosseini\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\m-ghazi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\e-hosseini\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -111,7 +118,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://packagesource": {}
         },
         "frameworks": {
           "net8.0": {
@@ -144,21 +152,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.104/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.Infra\\BankIntegration.Infra.csproj": {
+    "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.Infra\\BankIntegration.Infra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.Infra\\BankIntegration.Infra.csproj",
+        "projectUniqueName": "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.Infra\\BankIntegration.Infra.csproj",
         "projectName": "BankIntegration.Infra",
-        "projectPath": "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.Infra\\BankIntegration.Infra.csproj",
-        "packagesPath": "C:\\Users\\m-ghazi\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.Infra\\obj\\",
+        "projectPath": "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.Infra\\BankIntegration.Infra.csproj",
+        "packagesPath": "C:\\Users\\e-hosseini\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.Infra\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\m-ghazi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\e-hosseini\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -166,72 +177,107 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.Service\\BankIntegration.Service.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.Service\\BankIntegration.Service.csproj",
-        "projectName": "BankIntegration.Service",
-        "projectPath": "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.Service\\BankIntegration.Service.csproj",
-        "packagesPath": "C:\\Users\\m-ghazi\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.Service\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\m-ghazi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net8.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://packagesource": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.Domain\\BankIntegration.Domain.csproj": {
-                "projectPath": "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.Domain\\BankIntegration.Domain.csproj"
+              "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.Domain\\BankIntegration.Domain.csproj": {
+                "projectPath": "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.Domain\\BankIntegration.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.104/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.Service\\BankIntegration.Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.Service\\BankIntegration.Service.csproj",
+        "projectName": "BankIntegration.Service",
+        "projectPath": "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.Service\\BankIntegration.Service.csproj",
+        "packagesPath": "C:\\Users\\e-hosseini\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.Service\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\e-hosseini\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://packagesource": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.Domain\\BankIntegration.Domain.csproj": {
+                "projectPath": "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.Domain\\BankIntegration.Domain.csproj"
               },
-              "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.Infra\\BankIntegration.Infra.csproj": {
-                "projectPath": "D:\\Projects\\Gitlab.sos\\BankIntegration\\BankIntegration.Infra\\BankIntegration.Infra.csproj"
+              "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.Infra\\BankIntegration.Infra.csproj": {
+                "projectPath": "D:\\Projects\\Gitlab.sos\\BankIntrgration\\BankIntegration.Infra\\BankIntegration.Infra.csproj"
               }
             }
           }
@@ -287,7 +333,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.104/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
