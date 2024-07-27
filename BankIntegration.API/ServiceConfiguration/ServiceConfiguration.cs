@@ -16,7 +16,7 @@ public static class ServiceConfiguration
     public static IServiceCollection AddServices(this IServiceCollection services, IConfiguration configuration)
     {
         var connectionString = configuration.GetConnectionString("DefaultConnection");
-      
+
 
         //Api Versioning
         services.AddApiVersioning(options =>
@@ -27,7 +27,7 @@ public static class ServiceConfiguration
 
         // ApplicationDbContext
         services.AddDbContext<ApplicationDbContext>(
-            options => options.UseSqlServer(connectionString),ServiceLifetime.Scoped);
+            options => options.UseSqlServer(connectionString), ServiceLifetime.Scoped);
 
         //AutoMapper
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -38,6 +38,9 @@ public static class ServiceConfiguration
             cnf.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
             //cnf.AddOpenBehavior(typeof(ValidationBehavior<,>));
         });
+
+        //IHttpClientFactory
+        services.AddHttpClient();
 
         // Services
         services.AddScoped<IUnitOfWork, UnitOfWork>();
