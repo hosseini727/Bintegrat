@@ -1,4 +1,4 @@
-﻿namespace BankIntegration.Infra.SharedModel;
+﻿namespace BankIntegration.Infra.SharedModel.Identity;
 public class IdentitySettings
 {
     public bool PasswordRequireDigit { get; set; }

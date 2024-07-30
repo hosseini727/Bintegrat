@@ -1,7 +1,7 @@
 using BankIntegration.API.ServiceConfiguration;
 using BankIntegration.Infra.Repository.SQLRepository.Interface;
 using BankIntegration.Infra.SharedModel;
-using BankIntegration.Service.MiddleWare.Exception;
+using BankIntegration.Infra.SharedModel.Identity;
 using BankIntegration.Service.Utility.Jwt;
 
 var builder = WebApplication.CreateBuilder(args);
