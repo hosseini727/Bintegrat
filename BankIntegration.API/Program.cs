@@ -6,6 +6,12 @@ using BankIntegration.Service.Utility.Jwt;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// add bankSettig
+builder.Configuration.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+builder.Configuration.AddEnvironmentVariables();  
+builder.Services.Configure<BankSettingModel>(builder.Configuration.GetSection("bankSettings"));
+builder.Services.AddTransient<BankSettingModel>();
+
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -23,6 +29,10 @@ builder.Services.AddCustomIdentity(_siteSetting.IdentitySettings);
 
 builder.Services.AddJwtAuthentication(_siteSetting.JwtSettings);
 builder.Services.AddScoped<IJwtService, JwtService>();
+
+
+// HttpClient
+builder.Services.AddHttpClient();
 
 var app = builder.Build();
 

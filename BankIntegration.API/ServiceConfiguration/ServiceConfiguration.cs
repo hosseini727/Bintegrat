@@ -4,6 +4,7 @@ using BankIntegration.API.Behaviors;
 using BankIntegration.Infra.Persistance;
 using BankIntegration.Infra.Repository.SQLRepository.Repository;
 using BankIntegration.Infra.Repository.SQLRepository.RepositoryInterface;
+using BankIntegration.Infra.ThirdApi;
 using BankIntegration.Service.Contracts;
 using BankIntegration.Service.Services;
 using MediatR;
@@ -46,6 +47,8 @@ public static class ServiceConfiguration
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddTransient<IProductService, ProductService>();
         services.AddTransient<IPeopleService, PeopleService>();
+        services.AddTransient<IInquiryBankService, InquiryBankService>();
+        services.AddTransient<IBankHttp, BankHttp>();
         return services;
     }
 }
