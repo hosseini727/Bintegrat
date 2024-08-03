@@ -11,7 +11,7 @@ public class NewPasargad_ApiProductKey : BaseEntity
     public bool IsActive { get; set; }
 
     #endregion
-   // for test 
+   
     #region  |Navigation|
     public virtual NewPasargad_Product? NewPasargad_Product { get; set; }
     #endregion
