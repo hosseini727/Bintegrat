@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using BankIntegration.Infra.Repository.SQLRepository.Interface;
 using BankIntegration.Infra.Repository.SQLRepository.RepositoryInterface;
-using BankIntegration.Infra.SharedModel;
+using BankIntegration.Infra.SharedModel.Identity;
 using BankIntegration.Service.CQRSService.PoepleTransaction.Command;
 using BankIntegration.Service.Model.People.Response;
 using BankIntegration.Service.Utility.Jwt;
@@ -9,11 +9,7 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using SOS.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace BankIntegration.Service.CQRSService.PoepleTransaction.Handler
 {

@@ -1,10 +1,21 @@
+using System.Reflection;
+using BankIntegration.API.Behaviors;
 using BankIntegration.API.ServiceConfiguration;
 using BankIntegration.Infra.Repository.SQLRepository.Interface;
 using BankIntegration.Infra.SharedModel;
+using BankIntegration.Infra.SharedModel.BankApi;
+using BankIntegration.Infra.SharedModel.Identity;
 using BankIntegration.Service.MiddleWare.Exception;
 using BankIntegration.Service.Utility.Jwt;
+using FluentValidation;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// add bankSettig
+builder.Configuration.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+builder.Configuration.AddEnvironmentVariables();  
+builder.Services.Configure<BankSettingModel>(builder.Configuration.GetSection("bankSettings"));
+builder.Services.AddTransient<BankSettingModel>();
 
 
 builder.Services.AddEndpointsApiExplorer();
@@ -24,6 +35,10 @@ builder.Services.AddCustomIdentity(_siteSetting.IdentitySettings);
 builder.Services.AddJwtAuthentication(_siteSetting.JwtSettings);
 builder.Services.AddScoped<IJwtService, JwtService>();
 
+
+// HttpClient
+builder.Services.AddHttpClient();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -33,7 +48,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-//app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
+app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
 
 app.UseHttpsRedirection();
 

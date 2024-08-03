@@ -74,7 +74,7 @@ public class GlobalExceptionHandlingMiddleware
         }
 
         errorDetails.ErrorMessage = message;
-        errorDetails.StackTrace = stackTrace;
+        //errorDetails.StackTrace = stackTrace;
         errorDetails.Errors = GetAdditionalDetails(exception);
 
         exceptionResult = JsonSerializer.Serialize(errorDetails);

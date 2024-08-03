@@ -5,16 +5,12 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using SOS.Domain.Entities;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using AutoMapper;
 using BankIntegration.Infra.Repository.SQLRepository.RepositoryInterface;
 using BankIntegration.Service.Model.People.Response;
-using MediatR;
-using SOS.Domain.Entities;
 using BankIntegration.Infra.Repository.SQLRepository.Interface;
-using BankIntegration.Infra.SharedModel;
+using BankIntegration.Infra.SharedModel.Identity;
 using BankIntegration.Service.Utility.Jwt;
 using BankIntegration.Service.CQRSService.PoepleTransaction.Command;
 

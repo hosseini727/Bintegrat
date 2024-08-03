@@ -1,5 +1,5 @@
 ﻿using BankIntegration.Infra.Persistance;
-using BankIntegration.Infra.SharedModel;
+using BankIntegration.Infra.SharedModel.Identity;
 using Microsoft.AspNetCore.Identity;
 using SOS.Domain.Entities;
 
