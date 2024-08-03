@@ -4,8 +4,12 @@ using BankIntegration.API.Behaviors;
 using BankIntegration.Infra.Persistance;
 using BankIntegration.Infra.Repository.SQLRepository.Repository;
 using BankIntegration.Infra.Repository.SQLRepository.RepositoryInterface;
+using BankIntegration.Infra.ThirdApi;
 using BankIntegration.Service.Contracts;
+using BankIntegration.Service.CQRSService.BankInquiryCQRSService.Query;
 using BankIntegration.Service.Services;
+using BankIntegration.Service.Validation.BankValidation;
+using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -36,7 +40,7 @@ public static class ServiceConfiguration
         services.AddMediatR(cnf =>
         {
             cnf.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
-            //cnf.AddOpenBehavior(typeof(ValidationBehavior<,>));
+            cnf.AddOpenBehavior(typeof(ValidationBehavior<,>));
         });
 
         //IHttpClientFactory
@@ -46,6 +50,8 @@ public static class ServiceConfiguration
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddTransient<IProductService, ProductService>();
         services.AddTransient<IPeopleService, PeopleService>();
+        services.AddTransient<IInquiryBankService, InquiryBankService>();
+        services.AddTransient<IBankHttp, BankHttp>();
         return services;
     }
 }
