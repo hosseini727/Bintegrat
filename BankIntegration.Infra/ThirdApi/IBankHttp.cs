@@ -1,8 +1,11 @@
-﻿namespace BankIntegration.Infra.ThirdApi;
+﻿using BankIntegration.Infra.SharedModel.BankApi;
+using BankIntegration.Infra.ThirdApi.BankModels;
+
+namespace BankIntegration.Infra.ThirdApi;
 
 public interface IBankHttp
 {
     Task<string> GetResponse();
 
-    Task<string> GetSebaInquiry(string accountNumber);
+    Task<ApiResponseModel<FinalResponseInquery>> GetSebaInquiry(string accountNumber);
 }

@@ -1,8 +1,7 @@
 ﻿using System.Text;
-using BankIntegration.Infra.SharedModel;
+using BankIntegration.Infra.SharedModel.BankApi;
 using BankIntegration.Infra.ThirdApi.BankModels;
 using Microsoft.Extensions.Options;
-using Microsoft.Identity.Client;
 using Newtonsoft.Json;
 
 
@@ -24,9 +23,9 @@ public class BankHttp : IBankHttp
         throw new NotImplementedException();
     }
 
-    public async Task<string> GetSebaInquiry(string accountNumber)
+    public async Task<ApiResponseModel<FinalResponseInquery>> GetSebaInquiry(string accountNumber)
     {
-        var token = _bankSetting.Token;
+        var result = new ApiResponseModel<FinalResponseInquery>();
         var body = new ShebaInquiryInputModel
         {
             Iban = accountNumber
@@ -45,16 +44,32 @@ public class BankHttp : IBankHttp
         client.DefaultRequestHeaders.Add("_token_", _bankSetting.Token);
         client.DefaultRequestHeaders.Add("_token_issuer_", "1");
         var response = await client.PostAsync(_bankSetting.BaseUrl, content);
-        
+
         if (response.IsSuccessStatusCode)
         {
             var res = await response.Content.ReadAsStringAsync();
             var firstResponseLayer = JsonConvert.DeserializeObject<ShebaInquiryFirstModel>(res);
             if (!firstResponseLayer.HasError)
             {
-                var secondResponseLayer = JsonConvert.DeserializeObject<FinalResponseInquery>(firstResponseLayer.Result.result);
+                var secondResponseLayer =
+                    JsonConvert.DeserializeObject<FinalResponseInquery>(firstResponseLayer.Result.result);
+                result.IsSuccess = true;
+                result.Data = secondResponseLayer;
+            }
+            else
+            {
+                result.HttpStatus = (int)response.StatusCode;
+                result.IsSuccess = false;
+                result.Message = firstResponseLayer.ErrorCode.ToString();
             }
         }
-        return token;
+        else
+        {
+            result.HttpStatus = (int)response.StatusCode;
+            result.IsSuccess = false;
+            result.Message = response.RequestMessage.Content.ToString();
+        }
+
+        return result;
     }
 }

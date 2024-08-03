@@ -1,4 +1,4 @@
-﻿namespace BankIntegration.Infra.SharedModel;
+﻿namespace BankIntegration.Infra.SharedModel.BankApi;
 
 public class BankSettingModel
 {

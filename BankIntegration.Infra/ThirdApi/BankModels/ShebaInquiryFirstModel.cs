@@ -37,8 +37,6 @@ public class FinalResponseInquery
 public class BankInfo
 {
     public Name name { get; set; }
-    //public Code code { get; set; }
-    //public Urls urls { get; set; }
 }
 
 public class Name
@@ -47,14 +45,6 @@ public class Name
     public string fa { get; set; }
 }
 
-// public class Code
-// {
-//     [JsonProperty("2digit")]
-//     public string TwoDigit { get; set; }
-//
-//     [JsonProperty("3digit")]
-//     public string ThreeDigit { get; set; }
-// }
 
 public class IbanAccountOwner
 {

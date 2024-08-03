@@ -18,6 +18,9 @@ public class InquiryBankService : IInquiryBankService
     {
         var query = new GetInquiryShebaQuery(accountNo);
         var result = await _mediator.Send(query);
+        
+        
+        
         return result;
     }
 }

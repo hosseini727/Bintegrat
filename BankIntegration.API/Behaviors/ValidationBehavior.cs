@@ -10,7 +10,7 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
     private readonly IEnumerable<IValidator<TRequest>> _validators;
     private readonly List<ValidationFailure> _exceptions;
 
-    public ValidationBehavior(IEnumerable<IValidator<TRequest>> validators, List<ValidationFailure> exceptions)
+    public ValidationBehavior(IEnumerable<IValidator<TRequest>> validators)
     {
         _validators = validators;
         _exceptions = new List<ValidationFailure>();
@@ -33,7 +33,7 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
             {
                 _exceptions.Add(ex);
             }
-
+        
             var error = string.Join("\r\n", validationFailures);
             throw new ValidationException(error, _exceptions);
         }
