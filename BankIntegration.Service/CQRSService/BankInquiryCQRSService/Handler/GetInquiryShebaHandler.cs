@@ -22,23 +22,11 @@ public class GetInquiryShebaHandler : IRequestHandler<GetInquiryShebaQuery, Sheb
     public async Task<ShebaInquiryResponseModel> Handle(GetInquiryShebaQuery request,
         CancellationToken cancellationToken)
     {
-        try
-        {
-            ShebaInquiryResponseModel response;
-            var result = await _bankHttp.GetSebaInquiry(request.AccountNo);
-            if (!result.IsSuccess)
-            {
-                throw new BadRequestException($"{result.Message} -- {result.HttpStatus}");
-            }
-
-            response = _mapper.Map<FinalResponseInquery, ShebaInquiryResponseModel>(result.Data);
-            return response;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
-        
+        ShebaInquiryResponseModel response;
+        var result = await _bankHttp.GetSebaInquiry(request.AccountNo);
+        if (!result.IsSuccess)
+            throw new BadRequestException($"{result.Message} -- {result.HttpStatus}");
+        response = _mapper.Map<FinalResponseInquery, ShebaInquiryResponseModel>(result.Data);
+        return response;
     }
 }
