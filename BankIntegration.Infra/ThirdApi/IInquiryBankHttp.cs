@@ -3,7 +3,7 @@ using BankIntegration.Infra.ThirdApi.BankModels;
 
 namespace BankIntegration.Infra.ThirdApi;
 
-public interface IBankHttp
+public interface IInquiryBankHttp
 {
     Task<ApiResponseModel<FinalResponseInquery>> GetSebaInquiry(string accountNumber);
 }

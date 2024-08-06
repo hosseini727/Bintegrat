@@ -6,13 +6,10 @@ using Newtonsoft.Json;
 
 namespace BankIntegration.Infra.ThirdApi;
 
-public class BankHttp : BankHttpBase, IBankHttp
+public class InquiryBankHttp : BankHttpBase, IInquiryBankHttp
 {
-    private readonly BankSettingModel _bankSetting;
-
-    public BankHttp(IOptions<BankSettingModel> bankSetting, IHttpClientFactory http) : base(bankSetting, http)
+    public InquiryBankHttp(IOptions<BankSettingModel> bankSetting, IHttpClientFactory http) : base(bankSetting, http)
     {
-        _bankSetting = bankSetting.Value;
     }
 
     public async Task<ApiResponseModel<FinalResponseInquery>> GetSebaInquiry(string accountNumber)

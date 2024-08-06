@@ -5,7 +5,7 @@ namespace BankIntegration.Infra.ThirdApi;
 
 public abstract class BankHttpBase
 {
-    private readonly BankSettingModel _bankSetting;
+    protected readonly BankSettingModel _bankSetting;
     private readonly IHttpClientFactory _http;
 
     protected BankHttpBase(IOptions<BankSettingModel> bankSetting, IHttpClientFactory http)
@@ -34,4 +34,5 @@ public abstract class BankHttpBase
     }
 
     protected abstract Dictionary<string, string> SetBody(string jsonInput);
+    
 }

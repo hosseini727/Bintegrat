@@ -10,10 +10,10 @@ namespace BankIntegration.Service.CQRSService.BankInquiryCQRSService.Handler;
 
 public class GetInquiryShebaHandler : IRequestHandler<GetInquiryShebaQuery, ShebaInquiryResponseModel>
 {
-    private readonly IBankHttp _bankHttp;
+    private readonly InquiryBankHttp _bankHttp;
     private readonly IMapper _mapper;
 
-    public GetInquiryShebaHandler(IBankHttp bankHttp, IMapper mapper)
+    public GetInquiryShebaHandler(InquiryBankHttp bankHttp, IMapper mapper)
     {
         _bankHttp = bankHttp;
         _mapper = mapper;

@@ -51,7 +51,7 @@ public static class ServiceConfiguration
         services.AddTransient<IProductService, ProductService>();
         services.AddTransient<IPeopleService, PeopleService>();
         services.AddTransient<IInquiryBankService, InquiryBankService>();
-        services.AddTransient<IBankHttp, BankHttp>();
+        services.AddTransient<IInquiryBankHttp, InquiryBankHttp>();
         return services;
     }
 }
