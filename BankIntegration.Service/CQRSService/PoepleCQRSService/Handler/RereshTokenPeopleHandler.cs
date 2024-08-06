@@ -9,8 +9,8 @@ using System.Security.Claims;
 using System.Text;
 using BankIntegration.Infra.Repository.SQLRepository.RepositoryInterface;
 using BankIntegration.Service.Model.People.Response;
-using BankIntegration.Infra.Repository.SQLRepository.Interface;
 using BankIntegration.Infra.SharedModel.Identity;
+using BankIntegration.Service.Contracts;
 using BankIntegration.Service.Utility.Jwt;
 using BankIntegration.Service.CQRSService.PoepleTransaction.Command;
 

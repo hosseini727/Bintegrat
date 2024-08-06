@@ -1,5 +1,4 @@
-﻿using BankIntegration.Infra.Repository.SQLRepository.Interface;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using SOS.Domain.Entities;
@@ -7,9 +6,10 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using BankIntegration.Infra.SharedModel.Identity;
+using BankIntegration.Service.Contracts;
 
 
-namespace BankIntegration.Service.Utility.Jwt
+namespace BankIntegration.Service.Services
 {
     public class JwtService : IJwtService
     {

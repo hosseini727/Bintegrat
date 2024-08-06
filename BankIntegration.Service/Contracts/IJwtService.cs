@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankIntegration.Infra.Repository.SQLRepository.Interface
+namespace BankIntegration.Service.Contracts
 {
     public interface IJwtService
     {

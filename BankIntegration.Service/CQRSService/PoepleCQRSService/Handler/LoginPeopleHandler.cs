@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using BankIntegration.Infra.Repository.SQLRepository.Interface;
 using BankIntegration.Infra.Repository.SQLRepository.RepositoryInterface;
 using BankIntegration.Infra.SharedModel.Identity;
+using BankIntegration.Service.Contracts;
 using BankIntegration.Service.CQRSService.PoepleTransaction.Command;
 using BankIntegration.Service.Model.People.Response;
 using BankIntegration.Service.Utility.Jwt;
