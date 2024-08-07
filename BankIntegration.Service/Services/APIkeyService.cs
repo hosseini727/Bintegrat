@@ -12,9 +12,9 @@ public class APIkeyService : IAPIkeyService
         _unitOfWork = unitOfWork;
     }
 
-    public Task<string> GetShebaInquiryApiKey()
+    public async Task<string> GetShebaInquiryApiKey()
     {
-        //var res = await _unitOfWork.ProductApiKeyRepository.
+        var res = await _unitOfWork.ProductRepository.GetAll();
         throw new NotImplementedException();
     }
 }

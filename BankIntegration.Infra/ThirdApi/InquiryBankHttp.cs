@@ -12,12 +12,12 @@ public class InquiryBankHttp : BankHttpBase, IInquiryBankHttp
     {
     }
 
-    public async Task<ApiResponseModel<FinalResponseInquery>> GetSebaInquiry(string accountNumber)
+    public async Task<ApiResponseModel<FinalResponseInquery>> GetSebaInquiry(string accountNumber , string apiKey)
     {
         var client = CreateClient();
         SetHeader(client);
         var jsonBody = BuildShebaInquiryBody(accountNumber);
-        var body = SetBody(jsonBody);
+        var body = SetBody(jsonBody , apiKey);
         var content = SetBodyFormat(body);
         var response = await client.PostAsync(_bankSetting.BaseUrl, content);
         return await ParseShebaInquiryResponse(response);
@@ -65,12 +65,12 @@ public class InquiryBankHttp : BankHttpBase, IInquiryBankHttp
         return result;
     }
 
-    protected override Dictionary<string, string> SetBody(string jsonInput)
+    protected override Dictionary<string, string> SetBody(string jsonInput, string apiKey)
     {
         var data = new Dictionary<string, string>
         {
             { "scProductId", _bankSetting.ShebaInquiryProductCode },
-            { "scApiKey", _bankSetting.ShebaInquiryApiKey },
+            { "scApiKey", apiKey },
             { "request", jsonInput }
         };
         return data;

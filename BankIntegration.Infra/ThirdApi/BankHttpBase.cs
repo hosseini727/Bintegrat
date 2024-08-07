@@ -33,6 +33,6 @@ public abstract class BankHttpBase
         return new FormUrlEncodedContent(body);
     }
 
-    protected abstract Dictionary<string, string> SetBody(string jsonInput);
+    protected abstract Dictionary<string, string> SetBody(string jsonInput , string apiKey);
     
 }

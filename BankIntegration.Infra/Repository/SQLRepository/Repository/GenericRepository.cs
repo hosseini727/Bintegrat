@@ -59,4 +59,8 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         _dbSet.Remove(entity);
         return entity;
     }
+    public async Task<IEnumerable<TResult>> GetByJoin<TResult>(Func<IQueryable<T>, IQueryable<TResult>> query)
+    {
+        return await query(_dbSet).ToListAsync();
+    }
 }

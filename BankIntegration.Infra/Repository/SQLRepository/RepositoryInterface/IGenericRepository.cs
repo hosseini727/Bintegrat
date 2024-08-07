@@ -7,4 +7,6 @@ public interface IGenericRepository<T> where T : class
     Task<T> Add(T entity);
     T Update(T entity);
     Task<T> Delete(long id);
+    
+    Task<IEnumerable<TResult>> GetByJoin<TResult>(Func<IQueryable<T>, IQueryable<TResult>> query);
 }

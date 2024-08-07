@@ -10,4 +10,21 @@ public class ProductApiKeyRepository :  GenericRepository<NewPasargad_ApiProduct
     public ProductApiKeyRepository(ApplicationDbContext context) : base(context)
     {
     }
+    
+    public async Task<string> GetApikey(string productCode)
+    {
+        try
+        {
+            var result = await _dbSet.Where(x => x.NewPasargad_Product.ProductCode == productCode).FirstOrDefaultAsync();
+            if (result != null)
+                return result.ApiKey;
+            return null;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+        
+    }
 }
