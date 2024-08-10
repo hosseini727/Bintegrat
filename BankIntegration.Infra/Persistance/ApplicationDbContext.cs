@@ -19,16 +19,14 @@ public class ApplicationDbContext : IdentityDbContext<People, Role, long>
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        // builder.Entity<NewPasargad_ApiProductKey>()
-        //     .HasOne(apk => apk.NewPasargad_Product)
-        //     .WithMany(p => p.NewPasargad_ApiProductKey)
-        //     .HasForeignKey(apk => apk.NewPasargad_ProductId)
-        //     .HasConstraintName("FK_NewPasargad_ApiProductKey_ProductId");
-        //
-        // // Map NewPasargad_ProductId to ProductId column in database
-        // builder.Entity<NewPasargad_ApiProductKey>()
-        //     .Property(apk => apk.NewPasargad_ProductId)
-        //     .HasColumnName("ProductId");
+        builder.Entity<NewPasargad_Product>(entity => entity.HasOne(e => e.Parent)
+            .WithMany(e => e.Children)
+            .HasForeignKey(e => e.ParentProductId));
+
+        builder.Entity<NewPasargad_ApiProductKey>(entity => entity.HasOne(e => e.NewPasargad_Product)
+            .WithMany(e => e.NewPasargad_ApiProductKey)
+            .HasForeignKey(e => e.ProductId));
+
         base.OnModelCreating(builder);
     }
 }

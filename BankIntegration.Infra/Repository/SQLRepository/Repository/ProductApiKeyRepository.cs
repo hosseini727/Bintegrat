@@ -5,26 +5,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BankIntegration.Infra.Repository.SQLRepository.Repository;
 
-public class ProductApiKeyRepository :  GenericRepository<NewPasargad_ApiProductKey>,IProductApiKeyRepository
+public class ProductApiKeyRepository : GenericRepository<NewPasargad_ApiProductKey>, IProductApiKeyRepository
 {
     public ProductApiKeyRepository(ApplicationDbContext context) : base(context)
     {
     }
-    
+
     public async Task<string> GetApikey(string productCode)
     {
-        try
-        {
-            var result = await _dbSet.Where(x => x.NewPasargad_Product.ProductCode == productCode).FirstOrDefaultAsync();
-            if (result != null)
-                return result.ApiKey;
-            return null;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
-        
+        var result = await _dbSet.Where(x =>
+            x.NewPasargad_Product.ProductCode == productCode && x.IsActive == true).FirstOrDefaultAsync();
+        if (result != null)
+            return result.ApiKey;
+        return null;
     }
 }

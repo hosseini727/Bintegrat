@@ -10,6 +10,7 @@ public class ShebaInquiryFirstModel
     public string Ott { get; set; } = string.Empty;
     public Result Result { get; set; }
     public int ScProductId { get; set; }
+    public string Message { get; set; } = string.Empty;
 }
 
 public class Result

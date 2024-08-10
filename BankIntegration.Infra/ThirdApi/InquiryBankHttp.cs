@@ -52,7 +52,7 @@ public class InquiryBankHttp : BankHttpBase, IInquiryBankHttp
             {
                 result.HttpStatus = (int)response.StatusCode;
                 result.IsSuccess = false;
-                result.Message = firstResponseLayer.ErrorCode.ToString();
+                result.Message = $"{firstResponseLayer.Message} --- با کد خطا {firstResponseLayer.ErrorCode}";
             }
         }
         else

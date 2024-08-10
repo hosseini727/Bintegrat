@@ -46,6 +46,9 @@ public static class ServiceConfiguration
         //IHttpClientFactory
         services.AddHttpClient();
 
+        // InMempryCache
+        services.AddMemoryCache();
+
         // Services
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddTransient<IProductService, ProductService>();
