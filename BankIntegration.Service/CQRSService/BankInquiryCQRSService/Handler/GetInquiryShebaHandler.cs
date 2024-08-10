@@ -26,11 +26,10 @@ public class GetInquiryShebaHandler : IRequestHandler<GetInquiryShebaQuery, Sheb
         CancellationToken cancellationToken)
     {
         var token = await _apIkeyService.GetShebaInquiryApiKey();
-        ShebaInquiryResponseModel response;
         var result = await _bankHttp.GetSebaInquiry(request.AccountNo, token);
         if (!result.IsSuccess)
-            throw new BadRequestException($"{result.Message} -- {result.HttpStatus}");
-        response = _mapper.Map<FinalResponseInquery, ShebaInquiryResponseModel>(result.Data);
+            throw new BadRequestException(result.Message);
+        var response = _mapper.Map<FinalResponseInquery, ShebaInquiryResponseModel>(result.Data);
         return response;
     }
 }
