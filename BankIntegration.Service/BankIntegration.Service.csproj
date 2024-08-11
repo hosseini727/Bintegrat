@@ -20,10 +20,4 @@
       <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="CQRSService\ApiKeyCQRSService\Query\" />
-      <Folder Include="CQRSService\BankInquiryCQRSService\Command\" />
-      <Folder Include="CQRSService\ProductCQRSService\Command\" />
-    </ItemGroup>
-
 </Project>

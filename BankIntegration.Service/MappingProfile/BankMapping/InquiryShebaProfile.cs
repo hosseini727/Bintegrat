@@ -8,10 +8,7 @@ public class InquiryShebaProfile : Profile
 {
     public InquiryShebaProfile()
     {
-        CreateMap<FinalResponseInquery, ShebaInquiryResponseModel>()
-            .ForMember(des => des.IsSuccess,
-                opt => opt.MapFrom(
-                    src => src.AccountStatus == "02" ? true : false));
+        CreateMap<FinalResponseInquery, ShebaInquiryResponseModel>();
 
         CreateMap<IbanAccountOwner, AccountOwner>();
     }

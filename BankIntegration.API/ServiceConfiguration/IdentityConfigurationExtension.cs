@@ -5,7 +5,7 @@ using SOS.Domain.Entities;
 
 namespace BankIntegration.API.ServiceConfiguration
 {
-    public static class IdentityConfigurationEctensions
+    public static class IdentityConfigurationExtension
     {
         public static void AddCustomIdentity(this IServiceCollection services, IdentitySettings settings)
         {
