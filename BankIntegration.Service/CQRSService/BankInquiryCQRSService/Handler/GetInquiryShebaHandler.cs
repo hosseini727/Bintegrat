@@ -29,6 +29,7 @@ public class GetInquiryShebaHandler : IRequestHandler<GetInquiryShebaQuery, Sheb
         var result = await _bankHttp.GetSebaInquiry(request.AccountNo, token);
         if (!result.IsSuccess)
             throw new BadRequestException(result.Message);
+        result.Data.IsSuccess = result.Data.AccountStatus == "02" ? true : false;
         var response = _mapper.Map<FinalResponseInquery, ShebaInquiryResponseModel>(result.Data);
         return response;
     }
