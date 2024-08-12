@@ -25,12 +25,26 @@ public class GetInquiryShebaHandler : IRequestHandler<GetInquiryShebaQuery, Sheb
     public async Task<ShebaInquiryResponseModel> Handle(GetInquiryShebaQuery request,
         CancellationToken cancellationToken)
     {
+        if (string.IsNullOrEmpty(request.AccountNo))
+        {
+            throw new BadRequestException("account number is Null");
+        }
+        if (request.AccountNo.Length != 26)
+        {
+            throw new BadRequestException("length of  account number is not equal 26 character");
+        }
         var token = await _apIkeyService.GetShebaInquiryApiKey();
-        ShebaInquiryResponseModel response;
+        if (token==null)
+            throw new BadRequestException("apikey is Null");
         var result = await _bankHttp.GetSebaInquiry(request.AccountNo, token);
         if (!result.IsSuccess)
-            throw new BadRequestException($"{result.Message} -- {result.HttpStatus}");
-        response = _mapper.Map<FinalResponseInquery, ShebaInquiryResponseModel>(result.Data);
+            throw new BadRequestException(result.Message);
+        if (result.Data == null)
+        {
+            throw new BadRequestException("data is null from provider");
+        }
+        result.Data.IsSuccess = result.Data.AccountStatus == "02" ? true : false;
+        var response = _mapper.Map<FinalResponseInquery, ShebaInquiryResponseModel>(result.Data);
         return response;
     }
 }

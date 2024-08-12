@@ -10,7 +10,7 @@ public class APIkeyService : IAPIkeyService
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly BankSettingModel _bankSetting;
-    private string _shebaCacheKey;
+    private readonly string _shebaCacheKey;
     private readonly IMemoryCache _cache;
 
     public APIkeyService(IUnitOfWork unitOfWork, IOptions<BankSettingModel> bankSetting, IMemoryCache cache)
@@ -30,12 +30,8 @@ public class APIkeyService : IAPIkeyService
         else
         {
             var apikeyValue = await _unitOfWork.ProductApiKeyRepository.GetApikey(_bankSetting.ShebaInquiryProductCode);
-            if (apikeyValue != null)
-            {
-                _cache.Set(_shebaCacheKey, apikeyValue, TimeSpan.FromHours(5));
-                return apikeyValue;
-            }
-            return null;
+            _cache.Set(_shebaCacheKey, apikeyValue, TimeSpan.FromHours(5));
+            return apikeyValue;
         }
     }
 

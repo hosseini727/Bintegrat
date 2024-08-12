@@ -10,7 +10,6 @@ using BankIntegration.Service.CQRSService.BankInquiryCQRSService.Query;
 using BankIntegration.Service.Services;
 using BankIntegration.Service.Validation.BankValidation;
 using FluentValidation;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace BankIntegration.API.ServiceConfiguration;
@@ -36,6 +35,9 @@ public static class ServiceConfiguration
         //AutoMapper
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+        //FluentValidation
+        services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+
         //MediatR
         services.AddMediatR(cnf =>
         {
@@ -57,6 +59,7 @@ public static class ServiceConfiguration
         services.AddTransient<IInquiryBankHttp, InquiryBankHttp>();
         services.AddTransient<IConvertAccountNoBankHttp, ConvertAccountNoBankHttp>();
         services.AddTransient<IAPIkeyService, APIkeyService>();
+        services.AddTransient<IValidator<GetInquiryShebaQuery>, GetShebaInquiryValidator>();
         return services;
     }
 }
