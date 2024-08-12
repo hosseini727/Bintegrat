@@ -1,4 +1,6 @@
-﻿namespace BankIntegration.Infra.ThirdApi.BankModels;
+﻿using System.Reflection.PortableExecutable;
+
+namespace BankIntegration.Infra.ThirdApi.BankModels;
 
 public class ShebaInquiryFirstModel
 {
@@ -32,9 +34,24 @@ public class FinalResponseInquery
     public int PaymentCodeValid { get; set; }
     public string Iban { get; set; } = string.Empty;
     public List<IbanAccountOwner> IbanAccountOwnerList { get; set; }
-    public BankInfo BankInfo { get; set; }
+    public BankInfo BankInfo { get; set; } 
 }
 
+
+public class FinalResponseDepositInquery
+{
+    public string Message { get; set; } = string.Empty;
+    public bool IsSuccess { get; set; }
+    public string DepositNumber { get; set; }
+    public string DepositIBAN { get; set; }
+}
+
+
+
+public class DepositInquiryInputModel
+{
+    public string DepositNumber { get; set; } = string.Empty;
+}
 public class BankInfo
 {
     public Name name { get; set; }
@@ -78,3 +95,4 @@ public class ShebaInquiryInputModel
 {
     public string Iban { get; set; } = string.Empty;
 }
+

@@ -17,10 +17,16 @@ public class InquiryBankService : IInquiryBankService
     public async Task<ShebaInquiryResponseModel> GetShebaInquiry(string accountNo)
     {
         var query = new GetInquiryShebaQuery(accountNo);
-        var result = await _mediator.Send(query);
-        
-        
-        
+        var result = await _mediator.Send(query);     
         return result;
     }
+
+
+    public async Task<DepositInquiryResponseModel> GetDepositInquiry(string depositNo)
+    {
+        var query = new GetInquiryDepositQuery(depositNo);
+        var result = await _mediator.Send(query);
+        return result;
+    }
+
 }
