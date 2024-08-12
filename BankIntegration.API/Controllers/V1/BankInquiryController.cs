@@ -17,7 +17,7 @@ public class BankInquiryController : ControllerBase
     }
 
     [HttpGet]
-    [Route("ShebaInquiry")]
+    [Route("Sheba`")]
     public async Task<IActionResult> GetShebaInquiry(string accountNo)
     {
         var result = await _inquiryBankService.GetShebaInquiry(accountNo);
@@ -27,10 +27,10 @@ public class BankInquiryController : ControllerBase
 
 
     [HttpGet]
-    [Route("DepositInquiry")]
-    public async Task<IActionResult> GetDepositInquiry(string depositNo)
+    [Route("ConvertAccountNo")]
+    public async Task<IActionResult> ConvertAccountNo(string accountNo)
     {
-        var result = await _inquiryBankService.GetDepositInquiry(depositNo);
+        var result = await _inquiryBankService.ConvertAccountNo(accountNo);
         return Ok(result);
     }
 

@@ -22,9 +22,9 @@ public class InquiryBankService : IInquiryBankService
     }
 
 
-    public async Task<DepositInquiryResponseModel> GetDepositInquiry(string depositNo)
+    public async Task<ConvertAccountNoResponseModel> ConvertAccountNo(string depositNo)
     {
-        var query = new GetInquiryDepositQuery(depositNo);
+        var query = new ConvertAccountNoQuery(depositNo);
         var result = await _mediator.Send(query);
         return result;
     }

@@ -9,6 +9,6 @@ public class InquiryDepositProfile : Profile
 {
     public InquiryDepositProfile()
     {
-        CreateMap<FinalResponseDepositInquery, DepositInquiryResponseModel>();
+        CreateMap<FinalResponseDepositInquery, ConvertAccountNoResponseModel>();
     }
 }

@@ -6,6 +6,6 @@ public interface IInquiryBankService
 {
     Task<ShebaInquiryResponseModel> GetShebaInquiry(string accountNo);
 
-    Task<DepositInquiryResponseModel> GetDepositInquiry(string accountNo);
+    Task<ConvertAccountNoResponseModel> ConvertAccountNo(string accountNo);
 
 }

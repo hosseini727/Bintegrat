@@ -6,15 +6,15 @@ using Newtonsoft.Json;
 
 namespace BankIntegration.Infra.ThirdApi;
 
-public class InquiryDepositBankHttp : BankHttpBase, IInquiryDepositBankHttp
+public class ConvertAccountNoBankHttp : BankHttpBase, IConvertAccountNoBankHttp
 {
-    public InquiryDepositBankHttp(IOptions<BankSettingModel> bankSetting, IHttpClientFactory http) : base(bankSetting, http)
+    public ConvertAccountNoBankHttp(IOptions<BankSettingModel> bankSetting, IHttpClientFactory http) : base(bankSetting, http)
     {
     }
 
 
 
-    public async Task<ApiResponseModel<FinalResponseDepositInquery>> GetDepositInquiry(string accountNumber, string apiKey)
+    public async Task<ApiResponseModel<FinalResponseDepositInquery>> ConvertAccountNo(string accountNumber, string apiKey)
     {
         var client = CreateClient();
         SetHeader(client);

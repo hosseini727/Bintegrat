@@ -55,7 +55,7 @@ public static class ServiceConfiguration
         services.AddTransient<IPeopleService, PeopleService>();
         services.AddTransient<IInquiryBankService, InquiryBankService>();
         services.AddTransient<IInquiryBankHttp, InquiryBankHttp>();
-        services.AddTransient<IInquiryDepositBankHttp, InquiryDepositBankHttp>();
+        services.AddTransient<IConvertAccountNoBankHttp, ConvertAccountNoBankHttp>();
         services.AddTransient<IAPIkeyService, APIkeyService>();
         return services;
     }

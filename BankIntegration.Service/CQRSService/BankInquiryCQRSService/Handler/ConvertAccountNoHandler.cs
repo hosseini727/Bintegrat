@@ -14,28 +14,28 @@ using System.Threading.Tasks;
 
 namespace BankIntegration.Service.CQRSService.BankInquiryCQRSService.Handler
 {
-    public class GetInquiryDepositHandler : IRequestHandler<GetInquiryDepositQuery, DepositInquiryResponseModel>
+    public class ConvertAccountNoHandler : IRequestHandler<ConvertAccountNoQuery, ConvertAccountNoResponseModel>
     {
-        private readonly IInquiryDepositBankHttp _bankHttp;
+        private readonly IConvertAccountNoBankHttp _bankHttp;
         private readonly IMapper _mapper;
         private readonly IAPIkeyService _apIkeyService;
-
-        public GetInquiryDepositHandler(IInquiryDepositBankHttp bankHttp, IMapper mapper, IAPIkeyService apIkeyService)
+        //ConvertAccountNo
+        public ConvertAccountNoHandler(IConvertAccountNoBankHttp bankHttp, IMapper mapper, IAPIkeyService apIkeyService)
         {
             _bankHttp = bankHttp;
             _mapper = mapper;
             _apIkeyService = apIkeyService;
         }
 
-        public async Task<DepositInquiryResponseModel> Handle(GetInquiryDepositQuery request,
+        public async Task<ConvertAccountNoResponseModel> Handle(ConvertAccountNoQuery request,
        CancellationToken cancellationToken)
         {
             var token = await _apIkeyService.GetDepositInquiryApiKey();
-            DepositInquiryResponseModel response;            
-            var result = await _bankHttp.GetDepositInquiry(request.DepositNo, token);
+            ConvertAccountNoResponseModel response;            
+            var result = await _bankHttp.ConvertAccountNo(request.DepositNo, token);
             if (!result.IsSuccess)
                 throw new BadRequestException($"{result.Message} -- {result.HttpStatus}");
-            response = _mapper.Map<FinalResponseDepositInquery, DepositInquiryResponseModel>(result.Data);
+            response = _mapper.Map<FinalResponseDepositInquery, ConvertAccountNoResponseModel>(result.Data);
             return response;
         }
 
