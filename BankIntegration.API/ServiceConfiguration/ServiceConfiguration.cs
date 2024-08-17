@@ -60,6 +60,7 @@ public static class ServiceConfiguration
         services.AddTransient<IConvertAccountNoBankHttp, ConvertAccountNoBankHttp>();
         services.AddTransient<IAPIkeyService, APIkeyService>();
         services.AddTransient<IValidator<GetInquiryShebaQuery>, GetShebaInquiryValidator>();
+        services.AddTransient<IValidator<ConvertAccountNoQuery>, ConvertAccountNoValidator>();
         return services;
     }
 }

@@ -17,7 +17,7 @@ public class BankInquiryController : ControllerBase
     }
 
     [HttpGet]
-    [Route("Sheba`")]
+    [Route("Sheba")]
     public async Task<IActionResult> GetShebaInquiry(string accountNo)
     {
         var result = await _inquiryBankService.GetShebaInquiry(accountNo);
