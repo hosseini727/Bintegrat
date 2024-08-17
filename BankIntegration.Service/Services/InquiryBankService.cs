@@ -20,7 +20,7 @@ public class InquiryBankService : IInquiryBankService
         // handleQuery
         var query = new GetInquiryShebaQuery(accountNo);
         var result = await _mediator.Send(query);
-        // handleEvent
+        // handleEvent Develop
         var notification = new GetShebaInquiryNotificationResponse(result);
         await _mediator.Publish(notification, default);
         return result;
