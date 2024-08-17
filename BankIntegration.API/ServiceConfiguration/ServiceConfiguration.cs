@@ -72,8 +72,10 @@ public static class ServiceConfiguration
         services.AddTransient<IPeopleService, PeopleService>();
         services.AddTransient<IInquiryBankService, InquiryBankService>();
         services.AddTransient<IInquiryBankHttp, InquiryBankHttp>();
+        services.AddTransient<IConvertAccountNoBankHttp, ConvertAccountNoBankHttp>();
         services.AddTransient<IAPIkeyService, APIkeyService>();
         services.AddTransient<IValidator<GetInquiryShebaQuery>, GetShebaInquiryValidator>();
+        services.AddTransient<IValidator<ConvertAccountNoQuery>, ConvertAccountNoValidator>();
         return services;
     }
 }
