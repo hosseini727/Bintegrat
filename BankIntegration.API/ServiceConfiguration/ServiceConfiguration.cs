@@ -2,6 +2,8 @@
 using Asp.Versioning;
 using BankIntegration.API.Behaviors;
 using BankIntegration.Infra.Persistance;
+using BankIntegration.Infra.Repository.ElasticRepository.Repository;
+using BankIntegration.Infra.Repository.ElasticRepository.RepositoryInterface;
 using BankIntegration.Infra.Repository.SQLRepository.Repository;
 using BankIntegration.Infra.Repository.SQLRepository.RepositoryInterface;
 using BankIntegration.Infra.ThirdApi;
@@ -11,6 +13,7 @@ using BankIntegration.Service.Services;
 using BankIntegration.Service.Validation.BankValidation;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
+using Nest;
 
 namespace BankIntegration.API.ServiceConfiguration;
 
@@ -50,6 +53,18 @@ public static class ServiceConfiguration
 
         // InMempryCache
         services.AddMemoryCache();
+        
+        
+        //elasticSearch and Nest
+        services.AddSingleton<IElasticClient>(sp =>
+        {
+            var settings = new ConnectionSettings(new Uri("http://localhost:9200"))
+                .DefaultIndex("inquiry-sheba");
+
+            return new ElasticClient(settings);
+        });
+        services.AddScoped(typeof(IElasticGenericRepository<>),typeof(ElasticGenericRepository<>));
+
 
         // Services
         services.AddScoped<IUnitOfWork, UnitOfWork>();
