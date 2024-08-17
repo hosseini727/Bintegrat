@@ -34,7 +34,7 @@ public class ElasticGenericRepository<T> : IElasticGenericRepository<T> where T 
 
     public async Task<T> Get(string id)
     {
-        var response = await _elasticClient.GetAsync<T>(id);
+        var response = await _elasticClient.GetAsync<T>(id,i=>i.Index(typeof(T).Name.ToLower()));
         return response.Source;
     }
 

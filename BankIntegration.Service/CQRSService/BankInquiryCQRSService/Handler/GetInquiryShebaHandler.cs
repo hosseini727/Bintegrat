@@ -29,12 +29,14 @@ public class GetInquiryShebaHandler : IRequestHandler<GetInquiryShebaQuery, Sheb
         {
             throw new BadRequestException("account number is Null");
         }
+
         if (request.AccountNo.Length != 26)
         {
             throw new BadRequestException("length of  account number is not equal 26 character");
         }
+
         var token = await _apIkeyService.GetShebaInquiryApiKey();
-        if (token==null)
+        if (token == null)
             throw new BadRequestException("apikey is Null");
         var result = await _bankHttp.GetSebaInquiry(request.AccountNo, token);
         if (!result.IsSuccess)
@@ -43,7 +45,9 @@ public class GetInquiryShebaHandler : IRequestHandler<GetInquiryShebaQuery, Sheb
         {
             throw new BadRequestException("data is null from provider");
         }
-        result.Data.IsSuccess = result.Data.AccountStatus == "02" ? true : false;
+
+        result.Data.IsSuccess = (result.Data.AccountStatus == "02" || result.Data.AccountStatus == "2");
+
         var response = _mapper.Map<FinalResponseInquery, ShebaInquiryResponseModel>(result.Data);
         return response;
     }
