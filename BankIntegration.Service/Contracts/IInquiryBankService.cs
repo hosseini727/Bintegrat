@@ -5,4 +5,7 @@ namespace BankIntegration.Service.Contracts;
 public interface IInquiryBankService
 {
     Task<ShebaInquiryResponseModel> GetShebaInquiry(string accountNo);
+
+    Task<ConvertAccountNoResponseModel> ConvertAccountNo(string accountNo);
+
 }

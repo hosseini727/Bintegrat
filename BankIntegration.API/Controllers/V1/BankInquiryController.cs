@@ -17,10 +17,22 @@ public class BankInquiryController : ControllerBase
     }
 
     [HttpGet]
-    [Route("ShebaInquiry")]
+    [Route("Sheba")]
     public async Task<IActionResult> GetShebaInquiry(string accountNo)
     {
         var result = await _inquiryBankService.GetShebaInquiry(accountNo);
         return Ok(result);
     }
+
+
+
+    [HttpGet]
+    [Route("ConvertAccountNo")]
+    public async Task<IActionResult> ConvertAccountNo(string accountNo)
+    {
+        var result = await _inquiryBankService.ConvertAccountNo(accountNo);
+        return Ok(result);
+    }
+
+
 }

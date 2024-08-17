@@ -34,4 +34,22 @@ public class APIkeyService : IAPIkeyService
             return apikeyValue;
         }
     }
+
+    public async Task<string> GetDepositInquiryApiKey()
+    {
+        if (_cache.TryGetValue(_shebaCacheKey, out string apikey))
+        {
+            return apikey;
+        }
+        else
+        {
+            var apikeyValue = await _unitOfWork.ProductApiKeyRepository.GetApikey(_bankSetting.depositInquiryProductCode);
+            if (apikeyValue != null)
+            {
+                _cache.Set(_shebaCacheKey, apikeyValue, TimeSpan.FromHours(5));
+                return apikeyValue;
+            }
+            return null;
+        }
+    }
 }

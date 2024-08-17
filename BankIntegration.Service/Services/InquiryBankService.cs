@@ -1,4 +1,5 @@
 ﻿using BankIntegration.Service.Contracts;
+using BankIntegration.Service.CQRSService.BankInquiryCQRSService.Event;
 using BankIntegration.Service.CQRSService.BankInquiryCQRSService.Query;
 using BankIntegration.Service.Model.BankInquiry;
 using MediatR;
@@ -16,11 +17,18 @@ public class InquiryBankService : IInquiryBankService
 
     public async Task<ShebaInquiryResponseModel> GetShebaInquiry(string accountNo)
     {
+        // handleQuery
         var query = new GetInquiryShebaQuery(accountNo);
         var result = await _mediator.Send(query);
-        
-        
-        
+        // handleEvent Develop
+        var notification = new GetShebaInquiryNotificationResponse(result);
+        await _mediator.Publish(notification, default);
+        return result;
+    }
+    public async Task<ConvertAccountNoResponseModel> ConvertAccountNo(string depositNo)
+    {   
+        var query = new ConvertAccountNoQuery(depositNo);
+        var result = await _mediator.Send(query);
         return result;
     }
 }
