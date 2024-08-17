@@ -19,10 +19,17 @@ public class InquiryBankService : IInquiryBankService
     {
         // handleQuery
         var query = new GetInquiryShebaQuery(accountNo);
-        var result = await _mediator.Send(query);
-        // handleEvent
-        var notification = new GetShebaInquiryNotificationResponse(result);
-        await _mediator.Publish(notification, default);
+        var result = await _mediator.Send(query);     
         return result;
     }
+
+
+    public async Task<ConvertAccountNoResponseModel> ConvertAccountNo(string depositNo)
+    {
+        //test
+        var query = new ConvertAccountNoQuery(depositNo);
+        var result = await _mediator.Send(query);
+        return result;
+    }
+
 }
