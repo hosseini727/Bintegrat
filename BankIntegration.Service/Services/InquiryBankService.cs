@@ -25,8 +25,7 @@ public class InquiryBankService : IInquiryBankService
 
 
     public async Task<ConvertAccountNoResponseModel> ConvertAccountNo(string depositNo)
-    {
-        //test
+    {   
         var query = new ConvertAccountNoQuery(depositNo);
         var result = await _mediator.Send(query);
         return result;
