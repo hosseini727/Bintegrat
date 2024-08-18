@@ -1,7 +1,7 @@
 ﻿using BankIntegration.Infra.SharedModel.BankApi;
 using BankIntegration.Infra.ThirdApi.BankModels;
 
-namespace BankIntegration.Infra.ThirdApi;
+namespace BankIntegration.Infra.ThirdApi.Sheba;
 
 public interface IInquiryBankHttp
 {

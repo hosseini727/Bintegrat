@@ -1,10 +1,11 @@
 ﻿using BankIntegration.Infra.SharedModel.BankApi;
 using BankIntegration.Infra.ThirdApi.BankModels;
+using BankIntegration.Infra.ThirdApi.Base;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
 
-namespace BankIntegration.Infra.ThirdApi;
+namespace BankIntegration.Infra.ThirdApi.ConvertAccount;
 
 public class ConvertAccountNoBankHttp : BankHttpBase, IConvertAccountNoBankHttp
 {
