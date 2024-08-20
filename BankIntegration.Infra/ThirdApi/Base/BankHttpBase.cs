@@ -1,7 +1,7 @@
 ﻿using BankIntegration.Infra.SharedModel.BankApi;
 using Microsoft.Extensions.Options;
 
-namespace BankIntegration.Infra.ThirdApi;
+namespace BankIntegration.Infra.ThirdApi.Base;
 
 public abstract class BankHttpBase
 {

@@ -2,6 +2,7 @@
 using BankIntegration.Infra.SharedModel.BankApi;
 using BankIntegration.Infra.ThirdApi;
 using BankIntegration.Infra.ThirdApi.BankModels;
+using BankIntegration.Infra.ThirdApi.Sheba;
 using BankIntegration.Service.Contracts;
 using BankIntegration.Service.CQRSService.BankInquiryCQRSService.Handler;
 using BankIntegration.Service.CQRSService.BankInquiryCQRSService.Query;
