@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BankIntegration.Infra.ThirdApi;
 using BankIntegration.Infra.ThirdApi.BankModels;
+using BankIntegration.Infra.ThirdApi.ConvertAccount;
 using BankIntegration.Service.Contracts;
 using BankIntegration.Service.CQRSService.BankInquiryCQRSService.Query;
 using BankIntegration.Service.MiddleWare.Exception;

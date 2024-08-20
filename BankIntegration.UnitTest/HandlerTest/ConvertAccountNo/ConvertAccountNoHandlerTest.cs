@@ -84,6 +84,55 @@ public class ConvertAccountNoHandlerTest
         await act.Should().ThrowAsync<BadRequestException>();
     }
 
+    [Fact]
+    public async Task Handle_shouldReturnError_whenApiCallFails()
+    {
+        // Arrange
+        var query = new ConvertAccountNoQuery(_accountNumber);
+
+        _mockApiKeyService.Setup(x => x.GetDepositInquiryApiKey()).ReturnsAsync(_apikey);
+        _mockConvertAccountNoBankHttp.Setup(x => x.ConvertAccountNo(_accountNumber, _apikey))
+            .ThrowsAsync(new Exception("API call failed"));
+
+        // Act
+        Func<Task> act = () => _sut.Handle(query, default);
+
+        // Assert
+        await act.Should().ThrowAsync<Exception>(); 
+    }
+
+    [Fact]
+    public async Task Handle_shouldReturnError_whenApiResponseIsEmpty()
+    {
+        // Arrange
+        var query = new ConvertAccountNoQuery(_accountNumber);
+
+        _mockApiKeyService.Setup(x => x.GetDepositInquiryApiKey()).ReturnsAsync(_apikey);
+        _mockConvertAccountNoBankHttp.Setup(x => x.ConvertAccountNo(_accountNumber, _apikey))
+            .ReturnsAsync(default(ApiResponseModel<FinalResponseDepositInquery>));
+
+        // Act
+        Func<Task> act = () => _sut.Handle(query, default);
+
+        // Assert
+        await act.Should().ThrowAsync<Exception>(); // Or a more specific exception type based on your implementation
+    }
+
+
+    [Fact]
+    public async Task Handle_shouldReturnError_whenApiKeyIsInvalid()
+    {
+        // Arrange
+        var query = new ConvertAccountNoQuery(_accountNumber);
+
+        _mockApiKeyService.Setup(x => x.GetDepositInquiryApiKey()).ReturnsAsync(default(string)); 
+
+        // Act
+        Func<Task> act = () => _sut.Handle(query, default);
+
+        // Assert
+        await act.Should().ThrowAsync<Exception>(); 
+    }
 
    
 }
