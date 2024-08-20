@@ -47,7 +47,7 @@ public class GetShebaInquiryValidator : AbstractValidator<GetInquiryShebaQuery>
             }
             else
             {
-                return true;
+                return false;
             }
         }            
     }
