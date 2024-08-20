@@ -1,5 +1,8 @@
 ﻿using BankIntegration.Service.CQRSService.BankInquiryCQRSService.Query;
 using FluentValidation;
+using Microsoft.IdentityModel.Tokens;
+using Nest;
+using System.Text.RegularExpressions;
 
 namespace BankIntegration.Service.Validation.BankValidation;
 
@@ -16,8 +19,39 @@ public class GetShebaInquiryValidator : AbstractValidator<GetInquiryShebaQuery>
 
         RuleFor(x => x.AccountNo)
             .NotEmpty().WithMessage("Account number must not be empty.")
-            .Must(HasShebaStandard).WithMessage("Account number must start with 'IR' and be followed by 24 digits.");
+            .Must(HasShebaStandard).WithMessage("Account number must start with 'IR' and be followed by 24 digits.")
+            .Must(CheckSheba).WithMessage("Sheba entered is wrong");
     }
+
+    private bool CheckSheba(string accountNo)
+    {
+        var isSheba = Regex.IsMatch(accountNo, "^[a-zA-Z]{2}\\d{2} ?\\d{4} ?\\d{4} ?\\d{4} ?\\d{4} ?[\\d]{0,2}",
+               RegexOptions.Compiled);
+
+        if (!isSheba)
+        {
+            return false;
+        }
+        else
+        {           
+            accountNo = accountNo.ToLower();
+            var get4FirstDigit = accountNo.Substring(0, 4);
+            var replacedGet4FirstDigit = get4FirstDigit.ToLower().Replace("i", "18").Replace("r", "27");
+            var removedShebaFirst4Digit = accountNo.Replace(get4FirstDigit, "");
+            var newSheba = removedShebaFirst4Digit + replacedGet4FirstDigit;
+            var finalLongData = Convert.ToDecimal(newSheba);
+            var finalReminder = finalLongData % 97;
+            if (finalReminder == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return true;
+            }
+        }            
+    }
+
 
     private bool HasShebaStandard(string accountNo)
     {

@@ -4,7 +4,7 @@ using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
 
-namespace BankIntegration.Infra.ThirdApi;
+namespace BankIntegration.Infra.ThirdApi.ConvertAccountNo;
 
 public class ConvertAccountNoBankHttp : BankHttpBase, IConvertAccountNoBankHttp
 {

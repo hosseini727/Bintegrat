@@ -7,6 +7,7 @@ using BankIntegration.Infra.Repository.ElasticRepository.RepositoryInterface;
 using BankIntegration.Infra.Repository.SQLRepository.Repository;
 using BankIntegration.Infra.Repository.SQLRepository.RepositoryInterface;
 using BankIntegration.Infra.ThirdApi;
+using BankIntegration.Infra.ThirdApi.ConvertAccountNo;
 using BankIntegration.Service.Contracts;
 using BankIntegration.Service.CQRSService.BankInquiryCQRSService.Query;
 using BankIntegration.Service.Services;
