@@ -72,7 +72,7 @@ public class ConvertAccountNoBankHttp : BankHttpBase, IConvertAccountNoBankHttp
     {
         var data = new Dictionary<string, string>
         {
-            { "scProductId", _bankSetting.depositInquiryProductCode },
+            { "scProductId", _bankSetting.DepositInquiryProductCode },
             { "scApiKey", apiKey },
             { "request", jsonInput }
         };
