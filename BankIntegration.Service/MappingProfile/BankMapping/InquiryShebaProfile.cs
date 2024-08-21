@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BankIntegration.Infra.ElasticMapping;
 using BankIntegration.Infra.ThirdApi.BankModels;
 using BankIntegration.Service.Model.BankInquiry;
 
