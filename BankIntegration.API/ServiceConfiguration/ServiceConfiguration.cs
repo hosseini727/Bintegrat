@@ -75,6 +75,7 @@ public static class ServiceConfiguration
         services.AddTransient<IInquiryBankService, InquiryBankService>();
         services.AddTransient<IInquiryBankHttp, InquiryBankHttp>();
         services.AddTransient<IConvertAccountNoBankHttp, ConvertAccountNoBankHttp>();
+        services.AddTransient<IFinalInquiryBankHttp, FinalInquiryBankHttp>();
         services.AddTransient<IAPIkeyService, APIkeyService>();
         services.AddTransient<IValidator<GetInquiryShebaQuery>, GetShebaInquiryValidator>();
         services.AddTransient<IValidator<ConvertAccountNoQuery>, ConvertAccountNoValidator>();

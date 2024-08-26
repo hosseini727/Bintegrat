@@ -6,5 +6,8 @@ public interface IAPIkeyService
 
     Task<string> GetDepositInquiryApiKey();
 
-    
+    Task<string> GetFinalInquiryApiKey();
+
+
+
 }

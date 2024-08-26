@@ -35,4 +35,12 @@ public class BankInquiryController : ControllerBase
     }
 
 
+    [HttpGet]
+    [Route("FinalInquiry")]
+    public async Task<IActionResult> FinalInquiry(string transactionId)
+    {
+        var result = await _inquiryBankService.FinalInquiry(transactionId);
+        return Ok(result);
+    }
+
 }

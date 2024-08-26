@@ -8,4 +8,7 @@ public interface IInquiryBankService
 
     Task<ConvertAccountNoResponseModel> ConvertAccountNo(string accountNo);
 
+    Task<FinalInquiryResponseModel> FinalInquiry(string accountNo);
+
+
 }

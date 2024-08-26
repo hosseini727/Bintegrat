@@ -31,4 +31,11 @@ public class InquiryBankService : IInquiryBankService
         var result = await _mediator.Send(query);
         return result;
     }
+
+    public async Task<FinalInquiryResponseModel> FinalInquiry(string transactionId)
+    {
+        var query = new FinalInquiryQuery(transactionId);
+        var result = await _mediator.Send(query);
+        return result;
+    }
 }

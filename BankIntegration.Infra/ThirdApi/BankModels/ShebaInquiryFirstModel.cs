@@ -47,10 +47,25 @@ public class FinalResponseDepositInquery
 }
 
 
+public class FinalResponseInquiry
+{
+    public string Message { get; set; } = string.Empty;
+    public bool IsSuccess { get; set; }
+    public string FinalState { get; set; }
+    public string TransactionMessage { get; set; }
+    public string TransactionId { get; set; }
+
+    public string FinalMessage { get; set; }    
+}
 
 public class DepositInquiryInputModel
 {
     public string DepositNumber { get; set; } = string.Empty;
+}
+
+public class FinalInquiryInputModel
+{
+    public string TransactionId { get; set; } = string.Empty;
 }
 public class BankInfo
 {
