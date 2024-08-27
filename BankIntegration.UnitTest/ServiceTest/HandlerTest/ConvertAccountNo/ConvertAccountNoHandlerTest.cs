@@ -13,7 +13,7 @@ using Moq;
 using Xunit;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
-namespace BankIntegration.UnitTest.HandlerTest.ShebaInquiry;
+namespace BankIntegration.UnitTest.ServiceTest.HandlerTest.ConvertAccountNo;
 
 public class ConvertAccountNoHandlerTest
 {

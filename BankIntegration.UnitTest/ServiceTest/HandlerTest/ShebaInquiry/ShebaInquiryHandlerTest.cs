@@ -12,7 +12,7 @@ using FluentAssertions;
 using Moq;
 using Xunit;
 
-namespace BankIntegration.UnitTest.HandlerTest.ShebaInquiry;
+namespace BankIntegration.UnitTest.ServiceTest.HandlerTest.ShebaInquiry;
 
 public class ShebaInquiryHandlerTest
 {
