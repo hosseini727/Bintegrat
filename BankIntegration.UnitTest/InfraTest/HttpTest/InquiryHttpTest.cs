@@ -171,7 +171,7 @@ public class InquiryHttpTest
         // Assert
         Assert.NotNull(result);
         Assert.False(result.IsSuccess);
-        Assert.Null(result.Message);
+        Assert.NotNull(result.Message);
         Assert.Equal((int)HttpStatusCode.BadRequest, result.HttpStatus);
     }
 
