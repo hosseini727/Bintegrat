@@ -66,4 +66,18 @@ public class FinalInquiryHandlerTest
     }
 
 
+    [Fact]
+    public async Task Handle_ShouldThrowException_WhenApiKeyServiceThrowsException()
+    {
+        // Arrange
+        var query = new FinalInquiryQuery(_transactionId);
+        var exception = new Exception("API key service error");
+
+        _mockApiKeyService.Setup(x => x.GetFinalInquiryApiKey()).ThrowsAsync(exception);
+
+        // Act & Assert
+        await Assert.ThrowsAsync<Exception>(() => _sut.Handle(query, CancellationToken.None));
+    }
+
+    
 }
