@@ -1,4 +1,7 @@
-﻿namespace BankIntegration.Infra.Repository.ElasticRepository.RepositoryInterface;
+﻿using System.Linq.Expressions;
+using Nest;
+
+namespace BankIntegration.Infra.Repository.ElasticRepository.RepositoryInterface;
 
 public interface IElasticGenericRepository<T>
 {
@@ -7,4 +10,6 @@ public interface IElasticGenericRepository<T>
     Task<T> Get(string id);
     Task<bool> Update(T document, string id);
     Task<bool> Delete(string id);
+    Task<IEnumerable<T>> SearchByField(string fieldName, string fieldValue);
+    Task<IEnumerable<T>> FullTextSearch(string searchText);
 }

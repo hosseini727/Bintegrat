@@ -34,7 +34,7 @@ public class ElasticGenericRepository<T> : IElasticGenericRepository<T> where T 
 
     public async Task<T> Get(string id)
     {
-        var response = await _elasticClient.GetAsync<T>(id,i=>i.Index(typeof(T).Name.ToLower()));
+        var response = await _elasticClient.GetAsync<T>(id, i => i.Index(typeof(T).Name.ToLower()));
         return response.Source;
     }
 
@@ -48,5 +48,30 @@ public class ElasticGenericRepository<T> : IElasticGenericRepository<T> where T 
     {
         var response = await _elasticClient.DeleteAsync<T>(id);
         return response.IsValid;
+    }
+
+    public async Task<IEnumerable<T>> SearchByField(string fieldName, string fieldValue)
+    {
+        var indexName = typeof(T).Name.ToLower();
+        var searchResponse = await _elasticClient.SearchAsync<T>(search =>
+            search.Index(indexName)
+                .Query(query =>
+                    query.Term(term =>
+                        term.Field(fieldName)
+                            .Value(fieldValue)))
+        );
+        return searchResponse.Documents;
+    }
+
+    public async Task<IEnumerable<T>> FullTextSearch(string searchText)
+    {
+        var indexName = typeof(T).Name.ToLower();
+        var searchResponse = await _elasticClient.SearchAsync<T>(
+            search => search.Index(indexName)
+                .Query(query => query.MultiMatch(
+                    m => m.Query(searchText)
+                        .Fuzziness(Fuzziness.Auto)))
+        );
+        return searchResponse.Documents;
     }
 }
