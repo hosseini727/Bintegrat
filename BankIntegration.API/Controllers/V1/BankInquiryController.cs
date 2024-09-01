@@ -47,6 +47,6 @@ public class BankInquiryController : ControllerBase
     public async Task<IActionResult> SearchShebaInquiry(string searchText)
     {
         var result = await _inquiryBankService.SearchShebaInquiry(searchText);
-        return result.Any() ? Ok(result) : NotFound("No matching records found.");
+        return result.Any() ? Ok(result) : NoContent();
     }
 }
