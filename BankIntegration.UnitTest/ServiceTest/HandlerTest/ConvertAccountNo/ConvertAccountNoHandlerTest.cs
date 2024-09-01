@@ -13,7 +13,7 @@ using Moq;
 using Xunit;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
-namespace BankIntegration.UnitTest.HandlerTest.ShebaInquiry;
+namespace BankIntegration.UnitTest.ServiceTest.HandlerTest.ConvertAccountNo;
 
 public class ConvertAccountNoHandlerTest
 {
@@ -70,7 +70,7 @@ public class ConvertAccountNoHandlerTest
     public async Task Handle_shouldReturnError_whenAccountNumberIsTooShort()
     {
         // Arrange
-        var shortAccountNumber = "123"; 
+        var shortAccountNumber = "123";
         var query = new ConvertAccountNoQuery(shortAccountNumber);
 
         _mockApiKeyService.Setup(x => x.GetDepositInquiryApiKey()).ReturnsAsync(_apikey);
@@ -98,7 +98,7 @@ public class ConvertAccountNoHandlerTest
         Func<Task> act = () => _sut.Handle(query, default);
 
         // Assert
-        await act.Should().ThrowAsync<Exception>(); 
+        await act.Should().ThrowAsync<Exception>();
     }
 
     [Fact]
@@ -125,14 +125,14 @@ public class ConvertAccountNoHandlerTest
         // Arrange
         var query = new ConvertAccountNoQuery(_accountNumber);
 
-        _mockApiKeyService.Setup(x => x.GetDepositInquiryApiKey()).ReturnsAsync(default(string)); 
+        _mockApiKeyService.Setup(x => x.GetDepositInquiryApiKey()).ReturnsAsync(default(string));
 
         // Act
         Func<Task> act = () => _sut.Handle(query, default);
 
         // Assert
-        await act.Should().ThrowAsync<Exception>(); 
+        await act.Should().ThrowAsync<Exception>();
     }
 
-   
+
 }

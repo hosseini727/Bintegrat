@@ -13,8 +13,7 @@ using Moq;
 using Xunit;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
-namespace BankIntegration.UnitTest.HandlerTest.ShebaInquiry;
-
+namespace BankIntegration.UnitTest.ServiceTest.HandlerTest.FinalInquiry;
 public class FinalInquiryHandlerTest
 {
     private readonly FinalInquiryQueryHandler _sut;
@@ -65,6 +64,6 @@ public class FinalInquiryHandlerTest
         //Assert
         Assert.NotNull(result);
     }
-    
-   
+
+
 }

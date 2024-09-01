@@ -19,6 +19,6 @@ public class ShebaInquiry
 
 public class AccountOwner
 {
-    public string FirstName { get; set; } = String.Empty;
-    public string LastName { get; set; } = String.Empty;
+    public string FirstName { get; set; } = string.Empty;
+    public string LastName { get; set; } = string.Empty;
 }
