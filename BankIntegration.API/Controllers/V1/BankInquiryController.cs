@@ -25,7 +25,6 @@ public class BankInquiryController : ControllerBase
     }
 
 
-
     [HttpGet]
     [Route("ConvertAccountNo")]
     public async Task<IActionResult> ConvertAccountNo(string accountNo)
@@ -43,4 +42,11 @@ public class BankInquiryController : ControllerBase
         return Ok(result);
     }
 
+    [HttpGet]
+    [Route("SearchShebaInquiry")]
+    public async Task<IActionResult> SearchShebaInquiry(string searchText)
+    {
+        var result = await _inquiryBankService.SearchShebaInquiry(searchText);
+        return result.Any() ? Ok(result) : NotFound("No matching records found.");
+    }
 }

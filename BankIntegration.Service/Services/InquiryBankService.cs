@@ -38,4 +38,11 @@ public class InquiryBankService : IInquiryBankService
         var result = await _mediator.Send(query);
         return result;
     }
+
+    public async Task<IEnumerable<ShebaInquiryResponseModel>> SearchShebaInquiry(string searchText)
+    {
+        var query = new SearchShebaInquiryQuery(searchText);
+        var result = await _mediator.Send(query);
+        return result;
+    }
 }
