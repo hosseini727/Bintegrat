@@ -12,5 +12,9 @@ public interface IElasticGenericRepository<T> where T : class
     Task<bool> Delete(string id);
     Task<IEnumerable<T>> SearchByField(string fieldName, string fieldValue);
     Task<IEnumerable<T>> FullTextSearch(string searchText);
+    Task<IEnumerable<T>> FullTextSearchWithPagination(string searchText, int pageNumber, int pageSize);
     Task<IEnumerable<T>> SearchWithFilter(Func<QueryContainerDescriptor<T>, QueryContainer> filter);
+
+    Task<IEnumerable<T>> SearchWithFilterWithPagination(
+        Func<QueryContainerDescriptor<T>, QueryContainer> filter, int pageNumber, int pageSize);
 }

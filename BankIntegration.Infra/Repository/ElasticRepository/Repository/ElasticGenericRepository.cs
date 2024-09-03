@@ -74,13 +74,42 @@ public class ElasticGenericRepository<T> : IElasticGenericRepository<T> where T 
         );
         return searchResponse.Documents;
     }
-    
+
+    public async Task<IEnumerable<T>> FullTextSearchWithPagination(string searchText, int pageNumber = 1,
+        int pageSize = 10)
+    {
+        var indexName = typeof(T).Name.ToLower();
+        var searchResponse = await _elasticClient.SearchAsync<T>(
+            search => search.Index(indexName)
+                .Query(query => query.MultiMatch(
+                    m => m.Query(searchText)
+                        .Fuzziness(Fuzziness.Auto)))
+                .From((pageNumber - 1) * pageSize)
+                .Size(pageSize)
+        );
+        return searchResponse.Documents;
+    }
+
     public async Task<IEnumerable<T>> SearchWithFilter(Func<QueryContainerDescriptor<T>, QueryContainer> filter)
     {
         var indexName = typeof(T).Name.ToLower();
         var searchResponse = await _elasticClient.SearchAsync<T>(s => s
             .Index(indexName)
             .Query(filter)
+        );
+
+        return searchResponse.Documents;
+    }
+
+    public async Task<IEnumerable<T>> SearchWithFilterWithPagination(
+        Func<QueryContainerDescriptor<T>, QueryContainer> filter, int pageNumber = 1, int pageSize = 10)
+    {
+        var indexName = typeof(T).Name.ToLower();
+        var searchResponse = await _elasticClient.SearchAsync<T>(s => s
+            .Index(indexName)
+            .Query(filter)
+            .From((pageNumber - 1) * pageSize)
+            .Size(pageSize)
         );
 
         return searchResponse.Documents;
