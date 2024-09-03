@@ -10,5 +10,6 @@ public interface IInquiryBankService
 
     Task<FinalInquiryResponseModel> FinalInquiry(string accountNo);
 
+    Task<ConvertAccountNoResponseModel> SearchConvertNoInquiry(string accountNo);
 
 }

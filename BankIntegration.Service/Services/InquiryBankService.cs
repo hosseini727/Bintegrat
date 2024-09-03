@@ -44,4 +44,12 @@ public class InquiryBankService : IInquiryBankService
         await _mediator.Publish(notification);
         return result;
     }
+    public async Task<IEnumerable<ConvertAccountNoResponseModel>> SearchConvertNoInquiry(string searchText)
+    {
+        var query = new ConvertAccountNotificationResponse(searchText);
+        var result = await _mediator.Send(query);
+        return result;
+    }
+
+
 }
