@@ -25,10 +25,7 @@ namespace BankIntegration.Service.CQRSService.BankInquiryCQRSService.Handler
 
         public async Task<IEnumerable<ConvertAccountNoResponseModel>> Handle(SearchConvertNoInquiryQuery request,
             CancellationToken cancellationToken)
-        {
-            var t = await _elasticGenericRepository.SearchWithFilter(q =>
-                q.Term(t => t.Field(f => f.AccountComment).Value("")));
-
+        {      
             var result = await _elasticGenericRepository.FullTextSearch(request.SearchText);
             var mappedResult = _mapper.Map<IEnumerable<ShebaInquiry>, IEnumerable<ConvertAccountNoResponseModel>>(result);
             return mappedResult;
