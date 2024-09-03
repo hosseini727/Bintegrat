@@ -29,6 +29,9 @@ public class InquiryBankService : IInquiryBankService
     {   
         var query = new ConvertAccountNoQuery(depositNo);
         var result = await _mediator.Send(query);
+        // handleEvent Develop
+        var notification = new ConvertAccountNotificationResponse(result);
+        await _mediator.Publish(notification, default);
         return result;
     }
 
@@ -36,6 +39,9 @@ public class InquiryBankService : IInquiryBankService
     {
         var query = new FinalInquiryQuery(transactionId);
         var result = await _mediator.Send(query);
+        // handleEvent
+        var notification = new FinalInquiryNotificationResponse(result);
+        await _mediator.Publish(notification);
         return result;
     }
 
