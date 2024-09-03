@@ -74,4 +74,15 @@ public class ElasticGenericRepository<T> : IElasticGenericRepository<T> where T 
         );
         return searchResponse.Documents;
     }
+    
+    public async Task<IEnumerable<T>> SearchWithFilter(Func<QueryContainerDescriptor<T>, QueryContainer> filter)
+    {
+        var indexName = typeof(T).Name.ToLower();
+        var searchResponse = await _elasticClient.SearchAsync<T>(s => s
+            .Index(indexName)
+            .Query(filter)
+        );
+
+        return searchResponse.Documents;
+    }
 }
