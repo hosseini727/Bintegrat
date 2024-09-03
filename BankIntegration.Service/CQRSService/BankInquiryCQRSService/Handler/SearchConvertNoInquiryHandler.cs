@@ -14,10 +14,10 @@ namespace BankIntegration.Service.CQRSService.BankInquiryCQRSService.Handler
 {
     public class SearchConvertNoInquiryHandler : IRequestHandler<SearchConvertNoInquiryQuery, IEnumerable<ConvertAccountNoResponseModel>>
     {
-        private readonly IElasticGenericRepository<ShebaInquiry> _elasticGenericRepository;
+        private readonly IElasticGenericRepository<ConvertAccountInquiry> _elasticGenericRepository;
         private readonly IMapper _mapper;
 
-        public SearchConvertNoInquiryHandler(IElasticGenericRepository<ShebaInquiry> elasticGenericRepository, IMapper mapper)
+        public SearchConvertNoInquiryHandler(IElasticGenericRepository<ConvertAccountInquiry> elasticGenericRepository, IMapper mapper)
         {
             _elasticGenericRepository = elasticGenericRepository;
             _mapper = mapper;
@@ -27,7 +27,7 @@ namespace BankIntegration.Service.CQRSService.BankInquiryCQRSService.Handler
             CancellationToken cancellationToken)
         {      
             var result = await _elasticGenericRepository.FullTextSearch(request.SearchText);
-            var mappedResult = _mapper.Map<IEnumerable<ShebaInquiry>, IEnumerable<ConvertAccountNoResponseModel>>(result);
+            var mappedResult = _mapper.Map<IEnumerable<ConvertAccountInquiry>, IEnumerable<ConvertAccountNoResponseModel>>(result);
             return mappedResult;
         }
     }
