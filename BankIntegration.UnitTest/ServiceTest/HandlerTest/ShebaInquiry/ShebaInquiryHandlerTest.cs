@@ -92,7 +92,7 @@ public class ShebaInquiryHandlerTest
         //Assert
         await act.Should().ThrowAsync<BadRequestException>().WithMessage("apikey is Null");
     }
-    
+
     [Fact]
     public async Task Hanlde_ShouldThrowBadRequestException_whenAccountNoIsNull()
     {
@@ -104,7 +104,7 @@ public class ShebaInquiryHandlerTest
         //Assert
         await act.Should().ThrowAsync<BadRequestException>().WithMessage("account number is Null");
     }
-    
+
     [Fact]
     public async Task Hanlde_ShouldThrowBadRequestException_whenAccountNoLessThan26Char()
     {
@@ -116,8 +116,8 @@ public class ShebaInquiryHandlerTest
         //Assert
         await act.Should().ThrowAsync<BadRequestException>().WithMessage("length of  account number is not equal 26 character");
     }
-    
-    
+
+
     [Fact]
     public async Task Hanlde_ShouldThrowBadRequestException_whenAccountNoMoreThan26Char()
     {
@@ -129,7 +129,7 @@ public class ShebaInquiryHandlerTest
         //Assert
         await act.Should().ThrowAsync<BadRequestException>().WithMessage("length of  account number is not equal 26 character");
     }
-    
+
     [Fact]
     public async Task Handle_ShouldThrowBadRequestException_WhenResultDataIsNull()
     {
@@ -145,5 +145,5 @@ public class ShebaInquiryHandlerTest
         // Assert
         await act.Should().ThrowAsync<BadRequestException>().WithMessage("data is null from provider");
     }
-    
+
 }
