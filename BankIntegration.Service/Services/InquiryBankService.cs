@@ -50,9 +50,5 @@ public class InquiryBankService : IInquiryBankService
         var result = await _mediator.Send(query);
         return result;
     }
-
-    Task<ConvertAccountNoResponseModel> IInquiryBankService.SearchConvertAccountNoInquiry(string accountNo)
-    {
-        throw new NotImplementedException();
-    }
+  
 }

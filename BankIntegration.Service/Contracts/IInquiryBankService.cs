@@ -10,6 +10,6 @@ public interface IInquiryBankService
 
     Task<FinalInquiryResponseModel> FinalInquiry(string accountNo);
 
-    Task<ConvertAccountNoResponseModel> SearchConvertAccountNoInquiry(string accountNo);
+    Task<IEnumerable<ConvertAccountNoResponseModel>> SearchConvertAccountNoInquiry(string accountNo);
 
 }
