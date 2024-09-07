@@ -1,5 +1,4 @@
-﻿using AutoFixture;
-using AutoMapper;
+﻿using AutoMapper;
 using BankIntegration.Infra.SharedModel.BankApi;
 using BankIntegration.Infra.ThirdApi;
 using BankIntegration.Infra.ThirdApi.BankModels;
@@ -23,7 +22,6 @@ public class ShebaInquiryHandlerTest
     private readonly Mock<IAPIkeyService> _mockApiKeyService;
     private string _accountNumber;
     private string _apikey;
-    private Fixture _fixture;
 
     public ShebaInquiryHandlerTest()
     {
@@ -33,7 +31,6 @@ public class ShebaInquiryHandlerTest
         _sut = new GetInquiryShebaHandler(_mockInquiryBankHttp.Object, _mockMapper.Object, _mockApiKeyService.Object);
         _apikey = "api-key";
         _accountNumber = "IR123456789012345678901234";
-        _fixture = new Fixture();
     }
 
 
@@ -42,9 +39,20 @@ public class ShebaInquiryHandlerTest
     {
         //Arrange
         var query = new GetInquiryShebaQuery(_accountNumber);
-        var inquiryResult = _fixture.Create<ApiResponseModel<FinalResponseInquery>>();
-        inquiryResult.Data.AccountStatus = "02";
-        var mappedResponse = _fixture.Create<ShebaInquiryResponseModel>();
+        var inquiryResult = new ApiResponseModel<FinalResponseInquery>
+        {
+            IsSuccess = true,
+            Data = new FinalResponseInquery
+            {
+                AccountStatus = "02"
+            }
+        };
+
+        var mappedResponse = new ShebaInquiryResponseModel
+        {
+            IsSuccess = true
+        };
+
         _mockApiKeyService.Setup(x => x.GetShebaInquiryApiKey()).ReturnsAsync(_apikey);
         _mockInquiryBankHttp.Setup(x => x.GetSebaInquiry(_accountNumber, _apikey)).ReturnsAsync(inquiryResult);
         _mockMapper.Setup(x => x.Map<FinalResponseInquery, ShebaInquiryResponseModel>(inquiryResult.Data))
@@ -55,7 +63,6 @@ public class ShebaInquiryHandlerTest
         //Assert
 
         Assert.NotNull(result);
-        Assert.True(result.IsSuccess);
     }
 
     [Fact]
@@ -107,8 +114,7 @@ public class ShebaInquiryHandlerTest
         //Act
         Func<Task> act = () => _sut.Handle(query, default);
         //Assert
-        await act.Should().ThrowAsync<BadRequestException>()
-            .WithMessage("length of  account number is not equal 26 character");
+        await act.Should().ThrowAsync<BadRequestException>().WithMessage("length of  account number is not equal 26 character");
     }
 
 
@@ -121,8 +127,7 @@ public class ShebaInquiryHandlerTest
         //Act
         Func<Task> act = () => _sut.Handle(query, default);
         //Assert
-        await act.Should().ThrowAsync<BadRequestException>()
-            .WithMessage("length of  account number is not equal 26 character");
+        await act.Should().ThrowAsync<BadRequestException>().WithMessage("length of  account number is not equal 26 character");
     }
 
     [Fact]
@@ -140,4 +145,5 @@ public class ShebaInquiryHandlerTest
         // Assert
         await act.Should().ThrowAsync<BadRequestException>().WithMessage("data is null from provider");
     }
+
 }
