@@ -47,17 +47,23 @@ public class BankInquiryController : ControllerBase
     [Route("SearchShebaInquiry")]
     public async Task<IActionResult> SearchShebaInquiry(string searchText)
     {
-        //test
-        var result = await _inquiryBankService.SearchConvertAccountNoInquiry(searchText);
+        var result = await _inquiryBankService.SearchShebaInquiry(searchText);
         return Ok(result);
     }
 
 
     [HttpGet]
+    [Route("SearchConvertAccountInquiry")]
+    public async Task<IActionResult> SearchAccountConvertInquiry(string searchText)
+    {
+        var result = await _inquiryBankService.SearchConvertAccountNoInquiry(searchText);
+        return Ok(result);
+    }
+
+    [HttpGet]
     [Route("SearchFinalInquiry")]
     public async Task<IActionResult> SearchFinalInquiry(string searchText)
     {
-        //test
         var result = await _inquiryBankService.SearchFinalInquiry(searchText);
         return Ok(result);
     }
