@@ -47,6 +47,7 @@ public class BankInquiryController : ControllerBase
     [Route("SearchConvertNoInquiry")]
     public async Task<IActionResult> SearchConvertAccountNoInquiry(string searchText)
     {
+        //test
         var result = await _inquiryBankService.SearchConvertAccountNoInquiry(searchText);
         return Ok(result);
     }
@@ -56,6 +57,7 @@ public class BankInquiryController : ControllerBase
     [Route("SearchFinalInquiry")]
     public async Task<IActionResult> SearchFinalInquiry(string searchText)
     {
+        //test
         var result = await _inquiryBankService.SearchFinalInquiry(searchText);
         return Ok(result);
     }
