@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BankIntegration.Infra.ElasticMapping;
 using BankIntegration.Infra.ThirdApi.BankModels;
 using BankIntegration.Service.Model.BankInquiry;
 
@@ -9,6 +10,7 @@ public class InquiryDepositProfile : Profile
 {
     public InquiryDepositProfile()
     {
-        CreateMap<FinalResponseDepositInquery, ConvertAccountNoResponseModel>();
+        CreateMap<ShebaInquiryResponseModel, ShebaInquiry>();
+        CreateMap<ShebaInquiry, ShebaInquiryResponseModel>();
     }
 }
