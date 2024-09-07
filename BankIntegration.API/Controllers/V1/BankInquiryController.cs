@@ -25,7 +25,6 @@ public class BankInquiryController : ControllerBase
     }
 
 
-
     [HttpGet]
     [Route("ConvertAccountNo")]
     public async Task<IActionResult> ConvertAccountNo(string accountNo)
@@ -48,7 +47,7 @@ public class BankInquiryController : ControllerBase
     public async Task<IActionResult> SearchShebaInquiry(string searchText)
     {
         var result = await _inquiryBankService.SearchShebaInquiry(searchText);
-        return Ok(result);
+        return result.Any() ? Ok(result) : NoContent();
     }
 
 
@@ -57,7 +56,7 @@ public class BankInquiryController : ControllerBase
     public async Task<IActionResult> SearchAccountConvertInquiry(string searchText)
     {
         var result = await _inquiryBankService.SearchConvertAccountNoInquiry(searchText);
-        return Ok(result);
+        return result.Any() ? Ok(result) : NoContent();
     }
 
     [HttpGet]
@@ -65,6 +64,6 @@ public class BankInquiryController : ControllerBase
     public async Task<IActionResult> SearchFinalInquiry(string searchText)
     {
         var result = await _inquiryBankService.SearchFinalInquiry(searchText);
-        return Ok(result);
+        return result.Any() ? Ok(result) : NoContent();
     }
 }
