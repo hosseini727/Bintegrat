@@ -30,7 +30,6 @@ public class ProductController : ControllerBase
     [Route("GetAll")]
     public async Task<IActionResult> GetAll()
     {
-        _logger.LogInformation("Api Called");
         var result = await _productService.GetAll();
         return result.Any() ? Ok(result) : NoContent();
     }
