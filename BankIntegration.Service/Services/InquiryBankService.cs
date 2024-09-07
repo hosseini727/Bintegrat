@@ -50,5 +50,13 @@ public class InquiryBankService : IInquiryBankService
         var result = await _mediator.Send(query);
         return result;
     }
-  
+
+    public async Task<IEnumerable<FinalInquiryResponseModel>> SearchFinalInquiry(string searchText)
+    {
+        var query = new SearchFinalInquiryQuery(searchText);
+        var result = await _mediator.Send(query);
+        return result;
+    }
+    
+
 }

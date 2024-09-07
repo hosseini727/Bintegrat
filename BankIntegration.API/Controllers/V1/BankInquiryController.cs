@@ -51,4 +51,12 @@ public class BankInquiryController : ControllerBase
         return Ok(result);
     }
 
+
+    [HttpGet]
+    [Route("SearchFinalInquiry")]
+    public async Task<IActionResult> SearchFinalInquiry(string searchText)
+    {
+        var result = await _inquiryBankService.SearchFinalInquiry(searchText);
+        return Ok(result);
+    }
 }
