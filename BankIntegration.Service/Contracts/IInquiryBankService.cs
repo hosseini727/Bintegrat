@@ -15,5 +15,6 @@ public interface IInquiryBankService
 
 
     
+    Task<IEnumerable<ShebaInquiryResponseModel>> SearchShebaInquiry(string searchText);
 
 }

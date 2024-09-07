@@ -9,5 +9,6 @@ public class ShebaIndexProfile : Profile
     public ShebaIndexProfile()
     {
         CreateMap<ShebaInquiryResponseModel, ShebaInquiry>();
+        CreateMap<ShebaInquiry, ShebaInquiryResponseModel>();
     }
 }

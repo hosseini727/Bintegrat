@@ -1,4 +1,5 @@
-﻿using BankIntegration.Infra.SharedModel.BankApi;
+﻿using System.Net;
+using BankIntegration.Infra.SharedModel.BankApi;
 using BankIntegration.Infra.ThirdApi.BankModels;
 using BankIntegration.Infra.ThirdApi.Base;
 using Microsoft.Extensions.Options;
@@ -13,12 +14,12 @@ public class InquiryBankHttp : BankHttpBase, IInquiryBankHttp
     {
     }
 
-    public async Task<ApiResponseModel<FinalResponseInquery>> GetSebaInquiry(string accountNumber , string apiKey)
+    public async Task<ApiResponseModel<FinalResponseInquery>> GetSebaInquiry(string accountNumber, string apiKey)
     {
         var client = CreateClient();
         SetHeader(client);
         var jsonBody = BuildShebaInquiryBody(accountNumber);
-        var body = SetBody(jsonBody , apiKey);
+        var body = SetBody(jsonBody, apiKey);
         var content = SetBodyFormat(body);
         var response = await client.PostAsync(_bankSetting.BaseUrl, content);
         return await ParseShebaInquiryResponse(response);
@@ -38,16 +39,26 @@ public class InquiryBankHttp : BankHttpBase, IInquiryBankHttp
     private async Task<ApiResponseModel<FinalResponseInquery>> ParseShebaInquiryResponse(HttpResponseMessage response)
     {
         var result = new ApiResponseModel<FinalResponseInquery>();
-        if (response.IsSuccessStatusCode)
+        if (response.IsSuccessStatusCode && response.StatusCode == HttpStatusCode.OK)
         {
             var res = await response.Content.ReadAsStringAsync();
+
             var firstResponseLayer = JsonConvert.DeserializeObject<ShebaInquiryFirstModel>(res);
-            if (!firstResponseLayer.HasError)
+            if (!firstResponseLayer.HasError && firstResponseLayer.Result != null)
             {
                 var secondResponseLayer =
                     JsonConvert.DeserializeObject<FinalResponseInquery>(firstResponseLayer.Result.result);
-                result.IsSuccess = true;
-                result.Data = secondResponseLayer;
+                if (secondResponseLayer != null && secondResponseLayer.IsSuccess)
+                {
+                    result.IsSuccess = true;
+                    result.Data = secondResponseLayer;
+                }
+                else
+                {
+                    result.HttpStatus = (int)response.StatusCode;
+                    result.IsSuccess = false;
+                    result.Message = $"{secondResponseLayer?.Message} --- با کد خطا {secondResponseLayer?.RsCode}";
+                }
             }
             else
             {
@@ -60,8 +71,9 @@ public class InquiryBankHttp : BankHttpBase, IInquiryBankHttp
         {
             result.HttpStatus = (int)response.StatusCode;
             result.IsSuccess = false;
-            result.Message = response.RequestMessage.Content.ToString();
+            result.Message = " دیتایی دریافت نشد";
         }
+
 
         return result;
     }

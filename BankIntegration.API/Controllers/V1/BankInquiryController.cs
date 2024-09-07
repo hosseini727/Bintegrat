@@ -44,8 +44,8 @@ public class BankInquiryController : ControllerBase
     }
 
     [HttpGet]
-    [Route("SearchConvertNoInquiry")]
-    public async Task<IActionResult> SearchConvertAccountNoInquiry(string searchText)
+    [Route("SearchShebaInquiry")]
+    public async Task<IActionResult> SearchShebaInquiry(string searchText)
     {
         //test
         var result = await _inquiryBankService.SearchConvertAccountNoInquiry(searchText);

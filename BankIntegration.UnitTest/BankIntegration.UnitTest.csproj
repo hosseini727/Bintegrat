@@ -10,6 +10,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="AutoFixture" Version="4.18.1" />
         <PackageReference Include="FluentAssertions" Version="6.12.0" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0" />
         <PackageReference Include="Moq" Version="4.20.70" />
@@ -29,6 +30,10 @@
       <ProjectReference Include="..\BankIntegration.Domain\BankIntegration.Domain.csproj" />
       <ProjectReference Include="..\BankIntegration.Infra\BankIntegration.Infra.csproj" />
       <ProjectReference Include="..\BankIntegration.Service\BankIntegration.Service.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="ServiceTest\" />
     </ItemGroup>
 
 </Project>
