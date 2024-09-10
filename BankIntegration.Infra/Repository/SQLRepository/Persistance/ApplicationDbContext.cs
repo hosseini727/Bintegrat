@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SOS.Domain.Entities;
 
-namespace BankIntegration.Infra.Persistance;
+namespace BankIntegration.Infra.Repository.SQLRepository.Persistance;
 
 public class ApplicationDbContext : IdentityDbContext<People, Role, long>
 {

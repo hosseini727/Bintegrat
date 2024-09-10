@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-using BankIntegration.Domain.Entities;
-using BankIntegration.Infra.Persistance;
+﻿using BankIntegration.Infra.Repository.SQLRepository.Persistance;
 using BankIntegration.Infra.Repository.SQLRepository.RepositoryInterface;
 using Microsoft.EntityFrameworkCore;
 

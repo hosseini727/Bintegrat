@@ -1,4 +1,4 @@
-﻿using BankIntegration.Infra.Persistance;
+﻿using BankIntegration.Infra.Repository.SQLRepository.Persistance;
 using BankIntegration.Infra.Repository.SQLRepository.Repository;
 using SOS.Domain.Entities;
 using SOS.Infrastructure.Repository.Interface;

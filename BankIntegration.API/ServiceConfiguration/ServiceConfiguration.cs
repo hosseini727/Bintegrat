@@ -1,12 +1,11 @@
 ﻿using System.Reflection;
 using Asp.Versioning;
 using BankIntegration.API.Behaviors;
-using BankIntegration.Infra.Persistance;
 using BankIntegration.Infra.Repository.ElasticRepository.Repository;
 using BankIntegration.Infra.Repository.ElasticRepository.RepositoryInterface;
+using BankIntegration.Infra.Repository.SQLRepository.Persistance;
 using BankIntegration.Infra.Repository.SQLRepository.Repository;
 using BankIntegration.Infra.Repository.SQLRepository.RepositoryInterface;
-using BankIntegration.Infra.ThirdApi;
 using BankIntegration.Infra.ThirdApi.ConvertAccount;
 using BankIntegration.Infra.ThirdApi.Sheba;
 using BankIntegration.Service.Contracts;
@@ -55,8 +54,8 @@ public static class ServiceConfiguration
 
         // InMempryCache
         services.AddMemoryCache();
-        
-        
+
+
         //elasticSearch and Nest
         services.AddSingleton<IElasticClient>(sp =>
         {
@@ -65,7 +64,7 @@ public static class ServiceConfiguration
 
             return new ElasticClient(settings);
         });
-        services.AddScoped(typeof(IElasticGenericRepository<>),typeof(ElasticGenericRepository<>));
+        services.AddScoped(typeof(IElasticGenericRepository<>), typeof(ElasticGenericRepository<>));
 
 
         // Services
