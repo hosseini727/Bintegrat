@@ -62,7 +62,7 @@ public class FinalInquiryBankHttp : BankHttpBase, IFinalInquiryBankHttp
         {
             result.HttpStatus = (int)response.StatusCode;
             result.IsSuccess = false;
-            result.Message = response.RequestMessage.Content.ToString();
+            result.Message = " دیتایی دریافت نشد";
         }
 
         return result;
