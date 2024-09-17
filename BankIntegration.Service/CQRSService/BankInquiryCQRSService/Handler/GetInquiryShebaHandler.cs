@@ -37,12 +37,12 @@ public class GetInquiryShebaHandler : IRequestHandler<GetInquiryShebaQuery, Sheb
         }
 
         var token = await _apIkeyService.GetShebaInquiryApiKey();
-        if (token == null)
+        if (token is null)
             throw new BadRequestException("apikey is Null");
         var result = await _bankHttp.GetSebaInquiry(request.AccountNo, token);
         if (!result.IsSuccess)
             throw new BadRequestException(result.Message);
-        if (result.Data == null)
+        if (result.Data is null)
         {
             throw new BadRequestException("data is null from provider");
         }
