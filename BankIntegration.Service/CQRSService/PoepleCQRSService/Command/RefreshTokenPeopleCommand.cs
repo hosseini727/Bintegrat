@@ -5,7 +5,7 @@ using MediatR;
 
 namespace BankIntegration.Service.CQRSService.PoepleTransaction.Command
 {
-    public class RefreshTokenPeopleCommand : IRequest<RefreshTokenPeopleResponseModel>
+    public record RefreshTokenPeopleCommand : IRequest<RefreshTokenPeopleResponseModel>
     {
         public RefreshTokenPeopleRequestModel RefreshTokenPeopleModel { get; }
         public RefreshTokenPeopleCommand(RefreshTokenPeopleRequestModel RefreshTokenPeopleResponseModel)

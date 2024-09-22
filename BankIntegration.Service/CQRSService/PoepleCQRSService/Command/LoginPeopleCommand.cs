@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BankIntegration.Service.CQRSService.PoepleTransaction.Command
 {
-    public class LoginPeopleCommand : IRequest<loginPeopleResponseModel>
+    public record LoginPeopleCommand : IRequest<loginPeopleResponseModel>
     {
         public loginPeopleRequestModel LoginPeopleModel { get; }
 
