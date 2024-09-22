@@ -3,7 +3,7 @@ using MediatR;
 
 namespace BankIntegration.Service.CQRSService.ProductCQRSService.Query;
 
-public class GetProductByIdQuery : IRequest<ProductResponseModel>
+public record GetProductByIdQuery : IRequest<ProductResponseModel>
 {
     public long ProductId { get; }
 

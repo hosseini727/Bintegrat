@@ -3,6 +3,6 @@ using MediatR;
 
 namespace BankIntegration.Service.CQRSService.ProductCQRSService.Query;
 
-public class GetProductQuery : IRequest<IEnumerable<ProductResponseModel>>
+public record GetProductQuery : IRequest<IEnumerable<ProductResponseModel>>
 {
 }

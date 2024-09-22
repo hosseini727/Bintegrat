@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BankIntegration.Service.CQRSService.BankInquiryCQRSService.Query
 {
-    public class SearchConvertNoInquiryQuery: IRequest<IEnumerable<ConvertAccountNoResponseModel>>
+    public record SearchConvertNoInquiryQuery : IRequest<IEnumerable<ConvertAccountNoResponseModel>>
     {
         public string SearchText { get; }
         public SearchConvertNoInquiryQuery(string searchText)

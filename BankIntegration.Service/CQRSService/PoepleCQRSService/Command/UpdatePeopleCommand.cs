@@ -4,7 +4,7 @@ using MediatR;
 
 namespace BankIntegration.Service.CQRSService.PoepleTransaction.Command;
 
-public class UpdatePeopleCommand : IRequest<GetPeopleResponseModel>
+public record UpdatePeopleCommand : IRequest<GetPeopleResponseModel>
 {
     public UpdatePeopleRequestModel UpdateModel;
 

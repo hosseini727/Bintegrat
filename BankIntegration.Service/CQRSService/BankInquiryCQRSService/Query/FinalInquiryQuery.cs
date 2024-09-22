@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BankIntegration.Service.CQRSService.BankInquiryCQRSService.Query
 {
-    public class FinalInquiryQuery(string transactionId) : IRequest<FinalInquiryResponseModel>
+    public record FinalInquiryQuery(string transactionId) : IRequest<FinalInquiryResponseModel>
     {
         public string TransactionId = transactionId;
     }
