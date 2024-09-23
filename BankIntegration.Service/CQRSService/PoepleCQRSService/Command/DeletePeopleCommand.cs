@@ -2,7 +2,7 @@
 
 namespace BankIntegration.Service.CQRSService.PoepleTransaction.Command;
 
-public class DeletePeopleCommand : IRequest<bool>
+public record DeletePeopleCommand : IRequest<bool>
 {
     public int PeopleId;
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BankIntegration.Service.CQRSService.PoepleTransaction.Query
 {
-    public class GetPeopleByIdQuery : IRequest<GetPeopleResponseModel>
+    public record GetPeopleByIdQuery : IRequest<GetPeopleResponseModel>
     {
         public int PeopleId;
 

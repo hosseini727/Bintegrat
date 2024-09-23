@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BankIntegration.Service.CQRSService.BankInquiryCQRSService.Query
 {
-    public class ConvertAccountNoQuery(string depositNo) : IRequest<ConvertAccountNoResponseModel>
+    public record ConvertAccountNoQuery(string depositNo) : IRequest<ConvertAccountNoResponseModel>
     {
         public string DepositNo = depositNo;
     }

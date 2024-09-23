@@ -3,7 +3,7 @@ using MediatR;
 
 namespace BankIntegration.Service.CQRSService.BankInquiryCQRSService.Query;
 
-public class SearchShebaInquiryQuery : IRequest<IEnumerable<ShebaInquiryResponseModel>>
+public record SearchShebaInquiryQuery : IRequest<IEnumerable<ShebaInquiryResponseModel>>
 {
     public string SearchText { get; }
     public SearchShebaInquiryQuery(string searchText)
