@@ -6,8 +6,16 @@ public static class MassTransitConfiguration
 {
     public static void AddMassTransitWithRabbitMq(this IServiceCollection service)
     {
-        service.AddMassTransit(
-            x => x.UsingRabbitMq((context, cfg) => { cfg.Host("rabbitmq://localhost:5601"); })
-        );
+        service.AddMassTransit((conf) =>
+        {
+            conf.UsingRabbitMq((ctx, cfg) =>
+            {
+                cfg.Host("localhost", "/", h =>
+                {
+                    h.Username("admin");
+                    h.Password("123qaz#@!~");
+                });
+            });
+        });
     }
 }

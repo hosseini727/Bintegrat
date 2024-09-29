@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using Asp.Versioning;
 using BankIntegration.API.Behaviors;
+using BankIntegration.Infra.MessageBus;
 using BankIntegration.Infra.Repository.ElasticRepository.Repository;
 using BankIntegration.Infra.Repository.ElasticRepository.RepositoryInterface;
 using BankIntegration.Infra.Repository.SQLRepository.Persistance;
@@ -78,6 +79,7 @@ public static class ServiceConfiguration
         services.AddTransient<IAPIkeyService, APIkeyService>();
         services.AddTransient<IValidator<GetInquiryShebaQuery>, GetShebaInquiryValidator>();
         services.AddTransient<IValidator<ConvertAccountNoQuery>, ConvertAccountNoValidator>();
+        services.AddTransient<IMessageBusRepository, MessageBusRepository>();
         return services;
     }
 }
